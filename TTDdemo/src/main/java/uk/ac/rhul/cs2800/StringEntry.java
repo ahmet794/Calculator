@@ -11,7 +11,9 @@ public class StringEntry {
   private Entry entry;
 
   /**
-   * This constructor creates a StringEntry object.
+   * This constructor creates a StringEntry object with an Entry parameter.
+   * 
+   * @param entry is the Entry object with a string. 
    */
   public StringEntry(Entry entry) {
     this.entry = entry;
