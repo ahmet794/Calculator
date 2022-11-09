@@ -287,8 +287,7 @@ class StackTest {
   // 23
   @Test
   void testStringEntry() {
-    Entry stringEntry = (facEntry.createStringEntry("One"));
-    StringEntry strEntry = new StringEntry(stringEntry);
+    StringEntry strEntry = new StringEntry(facEntry.createStringEntry("One"));
     try {
       assertEquals(strEntry.getString(), "One",
           "Creating an StringEntry object and using getString() should give back the string parameter.");
@@ -296,6 +295,8 @@ class StackTest {
       ;
     }
   }
+  
+
 
 
 
