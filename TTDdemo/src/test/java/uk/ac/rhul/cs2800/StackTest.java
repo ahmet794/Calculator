@@ -15,8 +15,7 @@ class StackTest {
   private Entry typeNum;
   private Entry symbol;
   private Entry string;
-  private EntryFactory facStrEntry;
-  private EntryFactory facFloatEntry;
+  private EntryFactory facEntry;
 
   // 1
   // Setup to create the object
@@ -31,8 +30,7 @@ class StackTest {
     symbol = new Entry(Symbol.DIVIDE);
     string = new Entry("String");
     strS = new StrStack();
-    facStrEntry = new EntryFactory();
-    facFloatEntry = new EntryFactory();
+    facEntry = new EntryFactory();
   }
 
   // 2
@@ -253,7 +251,7 @@ class StackTest {
   // 20
   @Test
   void testStringEntryFactory() {
-    Entry strEntry = facStrEntry.createStringEntry("One");
+    Entry strEntry = facEntry.createStringEntry("One");
     try {
       assertEquals(strEntry.getString(), "One",
           "Creating an Entry object using the EntryFactory class should return the string parameter.");
@@ -265,10 +263,35 @@ class StackTest {
   // 21
   @Test
   void testFloatStringEntryFactory() {
-    Entry floatEntry = facFloatEntry.createFloatEntry(17.0f);
+    Entry floatEntry = facEntry.createFloatEntry(17.0f);
     try {
       assertEquals(floatEntry.getValue(), 17.0f,
           "Creating an Entry object using the EntryFactory class should return 17.0f.");
+    } catch (BadTypeException e) {
+      ;
+    }
+  }
+
+  // 22
+  @Test
+  void testSymbolEntry() {
+    Entry symbolEntry = facEntry.createSymbolEntry(Symbol.DIVIDE);
+    try {
+      assertEquals(symbolEntry.getSymbol(), Symbol.DIVIDE,
+          "Creating an Entry object using the EntryFactory class should return the DIVIDE ENUM.");
+    } catch (BadTypeException e) {
+      ;
+    }
+  }
+
+  // 23
+  @Test
+  void testStringEntry() {
+    Entry stringEntry = (facEntry.createStringEntry("One"));
+    StringEntry strEntry = new StringEntry(stringEntry);
+    try {
+      assertEquals(strEntry.getString(), "One",
+          "Creating an StringEntry object and using getString() should give back the string parameter.");
     } catch (BadTypeException e) {
       ;
     }

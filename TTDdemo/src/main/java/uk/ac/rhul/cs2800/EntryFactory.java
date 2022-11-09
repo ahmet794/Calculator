@@ -11,7 +11,7 @@ public class EntryFactory {
 
 
   /**
-   * This constructor creates an EntryFactory object.main
+   * This constructor creates an EntryFactory object.
    * 
    */
   public EntryFactory() {
@@ -33,15 +33,25 @@ public class EntryFactory {
   /**
    * This method creates an Entry object which has a float parameter.
    * 
-   * @param f is the float for the Entry object.
+   * @param num is the float for the Entry object.
    * @return an Entry object with a float parameter.
    */
-  public Entry createFloatEntry(float f) {
-    Entry floatEntry = new Entry(f);
+  public Entry createFloatEntry(float num) {
+    Entry floatEntry = new Entry(num);
     return floatEntry;
   }
-  
-  
+
+  /**
+   * This method creates an Entry object which has a float.
+   * 
+   * @param symbol is the Symbol ENUM for the Entry object.
+   * @return an Entry object with a Symbol ENUM parameter.
+   */
+  public Entry createSymbolEntry(Symbol symbol) {
+    Entry symbolEntry = new Entry(symbol);
+    return symbolEntry;
+  }
+
 
 
 }
