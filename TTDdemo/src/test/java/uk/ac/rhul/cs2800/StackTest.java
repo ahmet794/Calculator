@@ -8,12 +8,15 @@ import org.junit.jupiter.api.Test;
 
 class StackTest {
   private Stack s;
+  private StrStack strS;
   private Entry element;
   private Entry typeInv;
   private Entry typeSym;
   private Entry typeNum;
   private Entry symbol;
   private Entry string;
+  private EntryFactory facStrEntry;
+  private EntryFactory facFloatEntry;
 
   // 1
   // Setup to create the object
@@ -27,6 +30,9 @@ class StackTest {
     typeSym = new Entry(Type.SYMBOL);
     symbol = new Entry(Symbol.DIVIDE);
     string = new Entry("String");
+    strS = new StrStack();
+    facStrEntry = new EntryFactory();
+    facFloatEntry = new EntryFactory();
   }
 
   // 2
@@ -236,6 +242,36 @@ class StackTest {
       ;
     }
 
+  }
+
+  // 19
+  @Test
+  void testStrStackpush() {
+    strS.push(string);
+  }
+
+  // 20
+  @Test
+  void testStringEntryFactory() {
+    Entry strEntry = facStrEntry.createStringEntry("One");
+    try {
+      assertEquals(strEntry.getString(), "One",
+          "Creating an Entry object using the EntryFactory class should return the string parameter.");
+    } catch (BadTypeException e) {
+      ;
+    }
+  }
+
+  // 21
+  @Test
+  void testFloatStringEntryFactory() {
+    Entry floatEntry = facFloatEntry.createFloatEntry(17.0f);
+    try {
+      assertEquals(floatEntry.getValue(), 17.0f,
+          "Creating an Entry object using the EntryFactory class should return 17.0f.");
+    } catch (BadTypeException e) {
+      ;
+    }
   }
 
 
