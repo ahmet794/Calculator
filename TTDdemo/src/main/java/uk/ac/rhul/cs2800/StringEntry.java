@@ -13,7 +13,7 @@ public class StringEntry {
   /**
    * This constructor creates a StringEntry object with a String parameter.
    * 
-   * @param str is the Entry object with a string. 
+   * @param str is the String. 
    */
   public StringEntry(String str) {
     this.str = str;

@@ -11,9 +11,9 @@ public class FloatEntry {
   private float value;
 
   /**
-   * This constructor creates a FloatEntry object with an Entry parameter.
+   * This constructor creates a FloatEntry object with a float parameter.
    * 
-   * @param value is the Entry object with a string.
+   * @param value is the string.
    */
   public FloatEntry(float value) {
     this.value = value;
