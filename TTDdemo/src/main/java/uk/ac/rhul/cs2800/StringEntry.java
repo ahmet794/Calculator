@@ -8,31 +8,30 @@ package uk.ac.rhul.cs2800;
  */
 public class StringEntry {
 
-  private Entry entry;
+  private String str;
 
   /**
-   * This constructor creates a StringEntry object with an Entry parameter.
+   * This constructor creates a StringEntry object with a String parameter.
    * 
-   * @param entry is the Entry object with a string. 
+   * @param str is the Entry object with a string. 
    */
-  public StringEntry(Entry entry) {
-    this.entry = entry;
+  public StringEntry(String str) {
+    this.str = str;
   }
 
   /**
-   * This method is to return the string parameter of the Entry object.
+   * This method is to return the string parameter.
    * 
    * @return the string that is the parameter.
-   * @throws BadTypeException if it is not a string.
    */
-  public String getString() throws BadTypeException {
-    return entry.getString();
+  public String getString() {
+    return str;
   }
 
   /**
    * This class should only return getString method other types should only throw exceptions.
    * 
-   * @Throws BadTypeException if this method is called from this class.
+   * @throws BadTypeException if this method is called from this class.
    */
   public void getNum() throws BadTypeException {
     throw new BadTypeException();
@@ -46,6 +45,5 @@ public class StringEntry {
   public void getOp() throws BadTypeException {
     throw new BadTypeException();
   }
-
 
 }

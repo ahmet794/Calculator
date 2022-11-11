@@ -287,17 +287,51 @@ class StackTest {
   // 23
   @Test
   void testStringEntry() {
-    StringEntry strEntry = new StringEntry(facEntry.createStringEntry("One"));
-    try {
-      assertEquals(strEntry.getString(), "One",
-          "Creating an StringEntry object and using getString() should give back the string parameter.");
-    } catch (BadTypeException e) {
-      ;
-    }
+    StringEntry strEntry = new StringEntry("One");
+    assertEquals(strEntry.getString(), "One",
+        "Creating an StringEntry object and using getString() should give back the string parameter.");
+  }
+
+  // 24
+  @Test
+  void testStringEntryGetNum() {
+    StringEntry strEntry = new StringEntry("One");
+    assertThrows(BadTypeException.class, () -> strEntry.getNum(),
+        "Calling the getNum() method should throw an Exception.");
+  }
+
+  // 25
+  @Test
+  void testStringEntryGetOp() {
+    StringEntry strEntry = new StringEntry("One");
+    assertThrows(BadTypeException.class, () -> strEntry.getOp(),
+        "Calling the getOp() method should throw an Exception.");
+
+  }
+
+  // 26
+  @Test
+  void testFloatEntry() {
+    FloatEntry floatEntry = new FloatEntry(17.0f);
+    assertEquals(floatEntry.getNum(), 17.0f,
+        "Creating an FloatEntry object and using getValue() should give back the float parameter.");
+  }
+
+  // 27
+  @Test
+  void testFloatEntryGetString() {
+    StringEntry strEntry = new StringEntry("One");
+    assertThrows(BadTypeException.class, () -> strEntry.getString(),
+        "Calling the getString() method should throw an Exception.");
   }
   
-
-
+  // 28
+  @Test
+  void testFloatEntryGetOp() {
+    StringEntry strEntry = new StringEntry("One");
+    assertThrows(BadTypeException.class, () -> strEntry.getOp(),
+        "Calling the getOp() method should throw an Exception.");
+  }
 
 
 }
