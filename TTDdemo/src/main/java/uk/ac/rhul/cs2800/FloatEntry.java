@@ -24,6 +24,7 @@ public class FloatEntry implements EntryInt {
    * 
    * @return the value that is the parameter.
    */
+  @Override
   public float getNum() {
     return value;
   }
@@ -32,6 +33,7 @@ public class FloatEntry implements EntryInt {
    * This class should only return getNum method other types should only throw exceptions.
    * @throws BadTypeException if this method is called from this class.
    */
+  @Override
   public String getString() throws BadTypeException {
     throw new BadTypeException();
   }
@@ -41,7 +43,7 @@ public class FloatEntry implements EntryInt {
    * 
    * @throws BadTypeException if this method is called from this class.
    */
-
+  @Override
   public Symbol getOp() throws BadTypeException {
     throw new BadTypeException();
   }

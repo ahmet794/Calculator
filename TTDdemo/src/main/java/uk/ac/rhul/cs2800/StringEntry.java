@@ -24,6 +24,7 @@ public class StringEntry implements EntryInt {
    * 
    * @return the string that is the parameter.
    */
+  @Override
   public String getString() {
     return str;
   }
@@ -33,6 +34,7 @@ public class StringEntry implements EntryInt {
    * 
    * @throws BadTypeException if this method is called from this class.
    */
+  @Override
   public float getNum() throws BadTypeException {
     throw new BadTypeException();
   }
@@ -42,6 +44,7 @@ public class StringEntry implements EntryInt {
    * 
    * @throws BadTypeException if this method is called from this class.
    */
+  @Override
   public Symbol getOp() throws BadTypeException {
     throw new BadTypeException();
   }

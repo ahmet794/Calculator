@@ -24,6 +24,7 @@ public class OperationEntry implements EntryInt {
    * 
    * @return the Symbol ENUM.
    */
+  @Override
   public Symbol getOp() {
     return symbol;
   }
@@ -33,6 +34,7 @@ public class OperationEntry implements EntryInt {
    * 
    * @throws BadTypeException if this method is called from this class.
    */
+  @Override
   public float getNum() throws BadTypeException {
     throw new BadTypeException();
   }
@@ -42,6 +44,7 @@ public class OperationEntry implements EntryInt {
    * 
    * @throws BadTypeException if this method is called from this class.
    */
+  @Override
   public String getString() throws BadTypeException {
     throw new BadTypeException();
   }
