@@ -6,7 +6,7 @@ package uk.ac.rhul.cs2800;
  * @author ahmet
  *
  */
-public class FloatEntry {
+public class FloatEntry implements EntryInt {
 
   private float value;
 
@@ -30,10 +30,9 @@ public class FloatEntry {
 
   /**
    * This class should only return getNum method other types should only throw exceptions.
-   * 
    * @throws BadTypeException if this method is called from this class.
    */
-  public void getString() throws BadTypeException {
+  public String getString() throws BadTypeException {
     throw new BadTypeException();
   }
 
@@ -43,9 +42,9 @@ public class FloatEntry {
    * @throws BadTypeException if this method is called from this class.
    */
 
-  public void getOp() throws BadTypeException {
+  public Symbol getOp() throws BadTypeException {
     throw new BadTypeException();
   }
-  
+
 
 }

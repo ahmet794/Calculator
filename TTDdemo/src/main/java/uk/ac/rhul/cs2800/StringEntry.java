@@ -6,7 +6,7 @@ package uk.ac.rhul.cs2800;
  * @author ahmet
  *
  */
-public class StringEntry {
+public class StringEntry implements EntryInt {
 
   private String str;
 
@@ -33,7 +33,7 @@ public class StringEntry {
    * 
    * @throws BadTypeException if this method is called from this class.
    */
-  public void getNum() throws BadTypeException {
+  public float getNum() throws BadTypeException {
     throw new BadTypeException();
   }
 
@@ -42,7 +42,7 @@ public class StringEntry {
    * 
    * @throws BadTypeException if this method is called from this class.
    */
-  public void getOp() throws BadTypeException {
+  public Symbol getOp() throws BadTypeException {
     throw new BadTypeException();
   }
 
