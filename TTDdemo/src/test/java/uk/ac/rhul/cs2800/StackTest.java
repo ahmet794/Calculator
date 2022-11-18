@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class StackTest {
   private Stack s;
-  private Entry element;
+  private EntryInt element;
 
 
   // 1
@@ -17,7 +17,7 @@ class StackTest {
   public void setup() {
     s = new Stack();
     float value = 17.0f;
-    element = new Entry(value);
+    element = new FloatEntry(value);
   }
 
   // 2
@@ -71,7 +71,7 @@ class StackTest {
   void testPushandPopEmptyStack() {
     s.push(element);
     try {
-      assertEquals(s.pop().getValue(), 17.0f,
+      assertEquals(s.pop().getNum(), 17.0f,
           "Pushing element and then popping it should give element");
     } catch (BadTypeException e) {
       ;
@@ -86,10 +86,10 @@ class StackTest {
   @Test
   void testPushandPop() {
     s.push(element);
-    Entry new_element = new Entry(44.0f);
+    EntryInt new_element = new FloatEntry(44.0f);
     s.push(new_element);
     try {
-      assertEquals(s.pop().getValue(), 44, "Test to see if pop() returns the popped value");
+      assertEquals(s.pop().getNum(), 44, "Test to see if pop() returns the popped value");
     } catch (BadTypeException e) {
       ;
     }
@@ -100,11 +100,11 @@ class StackTest {
   @Test
   void testTop() {
     s.push(element);
-    Entry new_element = new Entry(44.0f);
+    EntryInt new_element = new FloatEntry(44.0f);
     s.push(new_element);
     s.pop();
     try {
-      assertEquals(s.top().getValue(), 17,
+      assertEquals(s.top().getNum(), 17,
           "After pushing 17, 44 and popping it, top() should return the value of 17");
     } catch (BadTypeException e) {
       ;
