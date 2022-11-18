@@ -6,19 +6,24 @@ import org.junit.jupiter.api.Test;
 
 class FloatEntryTest {
 
-  private FloatEntry floatEntry;
+  private EntryInt floatEntry;
+  private EntryFactory facEntry;
 
   @BeforeEach
   public void setup() {
-    floatEntry = new FloatEntry(17.0f);
+    floatEntry = facEntry.createFloatEntry(17.0f);
   }
 
   // 1
   // Use the FloatEntry object and get the value from using the getNum method.
   @Test
   void testFloatEntry() {
-    assertEquals(floatEntry.getNum(), 17.0f,
-        "Creating an FloatEntry object and using getValue() should give back the float parameter.");
+    try {
+      assertEquals(floatEntry.getNum(), 17.0f,
+          "Creating an FloatEntry object and using getValue() should give back the float parameter.");
+    } catch (BadTypeException e) {
+      ;
+    }
   }
 
   // 2

@@ -6,19 +6,24 @@ import org.junit.jupiter.api.Test;
 
 class StringEntryTest {
 
-  private StringEntry strEntry;
+  private EntryInt strEntry;
+  private EntryFactory facEntry;
 
   @BeforeEach
   public void setup() {
-    strEntry = new StringEntry("One");
+    strEntry = facEntry.createStringEntry("One");
   }
 
   // 1
-  // Use the StringEntry object to and get the string from using the getString method.
+  // Use the Entry Interface to create a StringEntry and get the string from using the getString method.
   @Test
   void testStringEntry() {
-    assertEquals(strEntry.getString(), "One",
-        "Creating an StringEntry object and using getString() should give back the string parameter.");
+    try {
+      assertEquals(strEntry.getString(), "One",
+          "Creating an StringEntry object and using getString() should give back the string parameter.");
+    } catch (BadTypeException e) {
+      ;
+    }
   }
 
   // 2

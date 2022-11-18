@@ -25,8 +25,8 @@ public class EntryFactory {
    * @param string is the string for the Entry object.
    * @return an Entry object with a string parameter.
    */
-  public Entry createStringEntry(String string) {
-    Entry strEntry = new Entry(string);
+  public EntryInt createStringEntry(String string) {
+    StringEntry strEntry = new StringEntry(string);
     return strEntry;
   }
 
@@ -36,8 +36,8 @@ public class EntryFactory {
    * @param num is the float for the Entry object.
    * @return an Entry object with a float parameter.
    */
-  public Entry createFloatEntry(float num) {
-    Entry floatEntry = new Entry(num);
+  public EntryInt createFloatEntry(float num) {
+    FloatEntry floatEntry = new FloatEntry(num);
     return floatEntry;
   }
 
@@ -47,8 +47,8 @@ public class EntryFactory {
    * @param symbol is the Symbol ENUM for the Entry object.
    * @return an Entry object with a Symbol ENUM parameter.
    */
-  public Entry createSymbolEntry(Symbol symbol) {
-    Entry symbolEntry = new Entry(symbol);
+  public EntryInt createSymbolEntry(Symbol symbol) {
+    OperationEntry symbolEntry = new OperationEntry(symbol);
     return symbolEntry;
   }
 

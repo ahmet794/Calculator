@@ -6,19 +6,24 @@ import org.junit.jupiter.api.Test;
 
 class OperationEntryTest {
 
-  private OperationEntry symEntry;
+  private EntryInt symEntry;
+  private EntryFactory facEntry;
 
   @BeforeEach
   public void setup() {
-    symEntry = new OperationEntry(Symbol.DIVIDE);
+    symEntry = facEntry.createSymbolEntry(Symbol.DIVIDE);
   }
 
   // 1
   // Test the OperationEntry class and use the getOp method.
   @Test
   void testOperationEntry() {
-    assertEquals(symEntry.getOp(), Symbol.DIVIDE,
-        "Creating an OperationEntry object and calling the class getOp should return the Symbol ENUM that the object is assigned to.");
+    try {
+      assertEquals(symEntry.getOp(), Symbol.DIVIDE,
+          "Creating an OperationEntry object and calling the class getOp should return the Symbol ENUM that the object is assigned to.");
+    } catch (BadTypeException e) {
+      ;
+    }
   }
 
   // 2
