@@ -11,6 +11,7 @@ class StringEntryTest {
 
   @BeforeEach
   public void setup() {
+    EntryFactory facEntry = new EntryFactory();
     strEntry = facEntry.createStringEntry("One");
   }
 

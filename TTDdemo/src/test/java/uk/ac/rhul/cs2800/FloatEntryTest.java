@@ -11,6 +11,7 @@ class FloatEntryTest {
 
   @BeforeEach
   public void setup() {
+    EntryFactory facEntry = new EntryFactory();
     floatEntry = facEntry.createFloatEntry(17.0f);
   }
 

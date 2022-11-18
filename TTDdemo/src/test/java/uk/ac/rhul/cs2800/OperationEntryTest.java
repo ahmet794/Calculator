@@ -11,6 +11,7 @@ class OperationEntryTest {
 
   @BeforeEach
   public void setup() {
+    EntryFactory facEntry = new EntryFactory();
     symEntry = facEntry.createSymbolEntry(Symbol.DIVIDE);
   }
 
