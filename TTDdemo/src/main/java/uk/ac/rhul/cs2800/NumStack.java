@@ -32,9 +32,11 @@ public class NumStack {
    * This method removes the last element in the stack.
    * 
    * @return the value of the removed element.
+   * @throws BadTypeException will not throw.
    */
-  public float pop() {
-    return 17.0f;
+  // BadTypeException wont be thrown because the type is already defined.
+  public float pop() throws BadTypeException {
+    return numStack.pop().getNum();
   }
 
 
