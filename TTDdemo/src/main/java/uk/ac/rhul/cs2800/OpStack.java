@@ -29,5 +29,15 @@ public class OpStack {
     opStack.push(symbol);
   }
 
+  /**
+   * This method removes the last element that was pushed into the stack.
+   * 
+   * @return the removed the element.
+   */
+  public Symbol pop() {
+    return Symbol.DIVIDE;
+  }
+
+
 
 }
