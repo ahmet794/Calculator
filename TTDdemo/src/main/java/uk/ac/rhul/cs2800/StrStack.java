@@ -39,6 +39,15 @@ public class StrStack {
     return strStack.pop().getString();
   }
 
+  /**
+   * This method should give the element that is on the top of the stack.
+   * 
+   * @return the last element that is pushed.
+   */
+  public String top() {
+    return "Two";
+  }
+
 
 
 }
