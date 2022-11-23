@@ -9,16 +9,15 @@ package uk.ac.rhul.cs2800;
  */
 
 public class StrStack {
-  
+
   private Stack strStack;
 
   /**
    * This constructor creates a StrStack object which takes a Stack object.
    * 
-   * @param strStack new stack object.
    */
-  public StrStack(Stack strStack) {
-    this.strStack = new Stack();
+  public StrStack() {
+    strStack = new Stack();
   }
 
   /**
@@ -30,6 +29,15 @@ public class StrStack {
     strStack.push(string);
   }
 
+  /**
+   * This method removes the last element on the stack.
+   * 
+   * @return the element that is removed.
+   * @throws BadTypeException can never be actually thrown.
+   */
+  public String pop() throws BadTypeException {
+    return strStack.pop().getString();
+  }
 
 
 
