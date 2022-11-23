@@ -49,6 +49,16 @@ public class StrStack {
     return strStack.top().getString();
   }
 
+  /**
+   * This method checks if the stack has any elements or not.
+   * 
+   * @return boolean if the stack is empty or not.
+   */
+  public boolean isEmpty() {
+
+    return true;
+  }
+
 
 
 }

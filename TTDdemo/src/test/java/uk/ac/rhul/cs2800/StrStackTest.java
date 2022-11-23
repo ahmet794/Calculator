@@ -1,6 +1,8 @@
 package uk.ac.rhul.cs2800;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.EmptyStackException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -83,7 +85,22 @@ class StrStackTest {
     } catch (BadTypeException e) {
       ;
     }
+  }
 
+  // 6
+  // Testing the EmptyStacException in the pop method.
+  @Test
+  void testEmptyStackException() {
+    assertThrows(EmptyStackException.class, () -> strS.pop(),
+        "Calling pop method without pushing anything to the stack should throw an EmptyStackException.");
+  }
+
+  // 7
+  // Test and create the isEmpty method.
+  @Test
+  void testisEmpty() {
+    assertEquals(strS.isEmpty(), true,
+        "When there is no element that has been pushed isEmpty method should return true");
   }
 
 
