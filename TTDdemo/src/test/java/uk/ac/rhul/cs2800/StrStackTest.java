@@ -60,8 +60,30 @@ class StrStackTest {
     strS.push(string);
     EntryInt str = new StringEntry("Two");
     strS.push(str);
-    assertEquals(strS.top(), "Two",
-        "Pushing two times and using the top method should return the last item that was pushed.");
+    try {
+      assertEquals(strS.top(), "Two",
+          "Pushing two times and using the top method should return the last item that was pushed.");
+    } catch (BadTypeException e) {
+      ;
+    }
+  }
+
+  // 5
+  // Testing the top method with more pushes.
+  @Test
+  void testStrStacktopandpush() {
+    strS.push(string);
+    EntryInt str = new StringEntry("Two");
+    EntryInt three = new StringEntry("Three");
+    strS.push(str);
+    strS.push(three);
+    try {
+      assertEquals(strS.top(), "Three",
+          "Pushing three times and calling the top method should return the last item that was pushed.");
+    } catch (BadTypeException e) {
+      ;
+    }
+
   }
 
 

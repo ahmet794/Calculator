@@ -43,9 +43,10 @@ public class StrStack {
    * This method should give the element that is on the top of the stack.
    * 
    * @return the last element that is pushed.
+   * @throws BadTypeException can never be actually thrown.
    */
-  public String top() {
-    return "Two";
+  public String top() throws BadTypeException {
+    return strStack.top().getString();
   }
 
 
