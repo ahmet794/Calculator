@@ -69,6 +69,9 @@ class OpStackTest {
   void testisEmpty() {
     assertEquals(opStack.isEmpty(), true,
         "When the stack is empty and isEmpty called, it should return true.");
+    opStack.push(symbol);
+    assertEquals(opStack.isEmpty(), false,
+        "When the stack is not empty and isEmpty is called, it should return false.");
   }
 
 

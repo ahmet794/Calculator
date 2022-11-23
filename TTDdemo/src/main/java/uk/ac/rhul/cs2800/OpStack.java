@@ -46,7 +46,7 @@ public class OpStack {
    * @return a boolean depending on if it is empty or not.
    */
   public boolean isEmpty() {
-    return true;
+    return opStack.size() == 0;
   }
 
 
