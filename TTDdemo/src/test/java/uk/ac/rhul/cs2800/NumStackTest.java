@@ -22,5 +22,13 @@ class NumStackTest {
     numStack.push(value);
   }
   
+  // 2
+  // Test push and also create the pop method.
+  @Test
+  void testNumStackpushAndpop() {
+    numStack.push(value);
+    assertEquals(numStack.pop(), 17.0f, "Pushing 17.0f and popping it should return 17.0f.");
+  }
+  
 
 }

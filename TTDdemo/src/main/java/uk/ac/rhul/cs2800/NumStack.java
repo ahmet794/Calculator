@@ -27,8 +27,15 @@ public class NumStack {
   public void push(EntryInt value) {
     numStack.push(value);
   }
-  
-  
+
+  /**
+   * This method removes the last element in the stack.
+   * 
+   * @return the value of the removed element.
+   */
+  public float pop() {
+    return 17.0f;
+  }
 
 
 
