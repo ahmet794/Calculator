@@ -39,6 +39,15 @@ public class NumStack {
     return numStack.pop().getNum();
   }
 
+  /**
+   * This method checks if the stack is empty or not.
+   * 
+   * @return boolean depending on if the stack is empty or not.
+   */
+  public boolean isEmpty() {
+    return true;
+  }
+
 
 
 }
