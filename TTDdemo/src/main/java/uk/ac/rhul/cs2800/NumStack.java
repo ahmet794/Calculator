@@ -42,10 +42,10 @@ public class NumStack {
   /**
    * This method checks if the stack is empty or not.
    * 
-   * @return boolean depending on if the stack is empty or not.
+   * @return a boolean depending on if the stack is empty or not.
    */
   public boolean isEmpty() {
-    return true;
+    return numStack.size() == 0;
   }
 
 

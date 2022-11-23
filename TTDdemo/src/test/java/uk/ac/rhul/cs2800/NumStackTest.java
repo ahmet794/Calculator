@@ -58,6 +58,9 @@ class NumStackTest {
   void testNumStackisEmpty() {
     assertEquals(numStack.isEmpty(), true,
         "When the stack is empty this method should return true.");
+    numStack.push(value);
+    assertEquals(numStack.isEmpty(), false,
+        "When the stack is not empty this method should return false.");
   }
 
 
