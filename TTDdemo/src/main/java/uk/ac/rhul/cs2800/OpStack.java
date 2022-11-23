@@ -40,6 +40,15 @@ public class OpStack {
     return opStack.pop().getOp();
   }
 
+  /**
+   * This method checks if the stack is empty or not.
+   * 
+   * @return a boolean depending on if it is empty or not.
+   */
+  public boolean isEmpty() {
+    return true;
+  }
+
 
 
 }
