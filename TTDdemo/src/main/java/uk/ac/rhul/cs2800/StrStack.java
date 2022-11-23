@@ -55,8 +55,7 @@ public class StrStack {
    * @return boolean if the stack is empty or not.
    */
   public boolean isEmpty() {
-
-    return true;
+    return strStack.size() == 0;
   }
 
 

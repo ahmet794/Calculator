@@ -101,6 +101,9 @@ class StrStackTest {
   void testisEmpty() {
     assertEquals(strS.isEmpty(), true,
         "When there is no element that has been pushed isEmpty method should return true");
+    strS.push(string);
+    assertEquals(strS.isEmpty(), false,
+        "If an element is pushed to the stack it should not be empty");
   }
 
 
