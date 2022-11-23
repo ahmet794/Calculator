@@ -15,5 +15,12 @@ class NumStackTest {
     value = new FloatEntry(17.0f);
   }
   
+  // 1
+  // Test and create the push method.
+  @Test
+  void testNumStackpush() {
+    numStack.push(value);
+  }
+  
 
 }

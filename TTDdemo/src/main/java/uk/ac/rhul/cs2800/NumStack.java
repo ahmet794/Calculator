@@ -18,7 +18,18 @@ public class NumStack {
 
     numStack = new Stack();
   }
+
+  /**
+   * This method adds a float element to the stack.
+   * 
+   * @param value is the element that is added.
+   */
+  public void push(EntryInt value) {
+    numStack.push(value);
+  }
   
   
+
+
 
 }
