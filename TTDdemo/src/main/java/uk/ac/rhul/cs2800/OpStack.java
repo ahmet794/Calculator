@@ -33,9 +33,11 @@ public class OpStack {
    * This method removes the last element that was pushed into the stack.
    * 
    * @return the removed the element.
+   * @throws BadTypeException is never thrown.
    */
-  public Symbol pop() {
-    return Symbol.DIVIDE;
+  // BadTypeException will never be thrown because type is already defined.
+  public Symbol pop() throws BadTypeException {
+    return opStack.pop().getOp();
   }
 
 
