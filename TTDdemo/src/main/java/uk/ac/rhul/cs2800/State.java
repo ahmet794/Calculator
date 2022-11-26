@@ -15,10 +15,15 @@ public interface State {
   public void calculate();
 
   /**
-   * The method to reset the calculator.
+   * The method to change the calculator type to postfix.
    * 
    */
-  public void reset();
+  public void postfix();
+
+  /**
+   * The method to change the calculator type to infix.
+   */
+  public void infix();
 
   /**
    * The method to set the expression to be calculated.

@@ -24,10 +24,6 @@ public class ExpressionState implements State {
 
   }
 
-  @Override
-  public void reset() {
-
-  }
 
   @Override
   public void setExpression(String exp) {
@@ -37,6 +33,16 @@ public class ExpressionState implements State {
 
   @Override
   public void quit() {
+
+  }
+
+  @Override
+  public void postfix() {
+
+  }
+
+  @Override
+  public void infix() {
 
   }
 
