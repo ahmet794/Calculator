@@ -7,6 +7,7 @@ import java.util.function.Consumer;
  * 
  * @author ahmet
  */
+
 public interface ViewInterface {
   /**
    * A getter for expressions.
@@ -27,7 +28,7 @@ public interface ViewInterface {
    * 
    * @param runnable is the Runnable that is added.
    */
-  public void addCalcObserver(Runnable runnable);
+  public void addCalcObserver(Observer runnable);
 
   /**
    * Adding the which method to be used in the calculator.
