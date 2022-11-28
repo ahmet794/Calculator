@@ -7,11 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.text.Text;
 
 /**
  * GUI view class.
@@ -33,14 +34,14 @@ public class MyView implements ViewInterface {
    * 
    */
   @FXML
-  private RadioButton infixButton;
+  private RadioButton infix;
 
   /**
    * Postfix button to change the type of calculation.
    * 
    */
   @FXML
-  private RadioButton postfixButton;
+  private RadioButton postfix;
 
   /**
    * The object that links the postfix and infix buttons.
@@ -54,23 +55,37 @@ public class MyView implements ViewInterface {
    * 
    */
   @FXML
-  private TextField question;
+  private TextField expressionBox;
 
   /**
    * The label where the answer is shown.
    * 
    */
   @FXML
-  private Label answer;
+  private Text answerField;
+
+  /**
+   * My name at the corner of the GUI.
+   * 
+   */
+  @FXML
+  private Text name;
+
+  /**
+   * Title Calculator in the middle.
+   * 
+   */
+  @FXML
+  private TextArea title;
 
   @Override
   public String getExpression() {
-    return question.getText();
+    return expressionBox.getText();
   }
 
   @Override
   public void setAnswer(String str) {
-    answer.setText(str);
+    answerField.setText(str);
   }
 
   @Override
@@ -91,7 +106,7 @@ public class MyView implements ViewInterface {
 
       @Override
       public void changed(ObservableValue<? extends Toggle> observable, Toggle from, Toggle to) {
-        consumer.accept(to == infixButton ? OpType.INFIX : OpType.POSTFIX);
+        consumer.accept(to == infix ? OpType.INFIX : OpType.POSTFIX);
       }
     });
   }

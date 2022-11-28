@@ -8,20 +8,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.rhul.cs2800.MyView">
    <children>
-      <Button layoutX="119.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="163.0" text="Calculate" textFill="#1e2843" />
-      <RadioButton layoutX="119.0" layoutY="265.0" mnemonicParsing="false" text="Postfix" />
-      <RadioButton layoutX="222.0" layoutY="265.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="60.0" text="Infix" />
-      <TextField layoutX="13.0" layoutY="175.0" prefHeight="26.0" prefWidth="371.0" promptText="Expression" />
-      <Text layoutX="133.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer..." wrappingWidth="129.21630859375" />
-      <TextArea layoutX="64.0" layoutY="70.0" prefHeight="64.0" prefWidth="273.0" promptText="CALCULATOR" text="CALCULATOR">
+      <Button fx:id="calcButton" layoutX="119.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="163.0" text="Calculate" textFill="#1e2843" />
+      <RadioButton fx:id="postfix" layoutX="119.0" layoutY="265.0" mnemonicParsing="false" text="Postfix" />
+      <RadioButton fx:id="infix" layoutX="222.0" layoutY="265.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="60.0" text="Infix" />
+      <TextField fx:id="expressionBox" layoutX="13.0" layoutY="175.0" prefHeight="26.0" prefWidth="371.0" promptText="Expression" />
+      <Text fx:id="answerField" layoutX="133.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer..." wrappingWidth="129.21630859375" />
+      <TextArea fx:id="title" layoutX="64.0" layoutY="70.0" prefHeight="64.0" prefWidth="273.0" promptText="CALCULATOR" text="CALCULATOR">
          <font>
             <Font name="Charter Roman" size="36.0" />
          </font>
       </TextArea>
       <Text layoutX="282.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v.1.0.0" />
-      <Text layoutX="318.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cihan Corp." />
+      <Text fx:id="name" layoutX="318.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cihan Corp." />
    </children>
 </Pane>
