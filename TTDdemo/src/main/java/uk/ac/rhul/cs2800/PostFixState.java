@@ -9,26 +9,24 @@ import java.util.function.Consumer;
  *
  */
 public class PostFixState implements State {
+  
 
-  Consumer<OpType> type;
+  private Consumer<OpType> type;
 
   @Override
   public void calculate() {
-
-
+    System.out.println("This class only calls the postfix method.");
   }
 
 
   @Override
   public void setExpression(String exp) {
-
-
+    System.out.println("This class only calls the postfix method.");
   }
 
   @Override
   public void quit() {
-
-
+    System.out.println("This class only calls the postfix method.");
   }
 
 
@@ -41,7 +39,7 @@ public class PostFixState implements State {
 
   @Override
   public void infix() {
-
+    System.out.println("This method only calls the postfix method.");
   }
 
 }

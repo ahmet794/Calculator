@@ -9,6 +9,7 @@ package uk.ac.rhul.cs2800;
 public class ExpressionState implements State {
 
   private String expression;
+  private Menu menu;
 
   /**
    * This constructor takes a Menu object to create an ExpressionState object.
@@ -21,29 +22,30 @@ public class ExpressionState implements State {
 
   @Override
   public void calculate() {
-
+    System.out.println("This class only calls the setExpression method.");
   }
 
 
   @Override
   public void setExpression(String exp) {
     expression = exp;
+    menu.changeState(new CalculateState());
 
   }
 
   @Override
   public void quit() {
-
+    System.out.println("This class only calls the setExpression method.");
   }
 
   @Override
   public void postfix() {
-
+    System.out.println("This class only calls the setExpression method.");
   }
 
   @Override
   public void infix() {
-
+    System.out.println("This class only calls the setExpression method.");
   }
 
 }

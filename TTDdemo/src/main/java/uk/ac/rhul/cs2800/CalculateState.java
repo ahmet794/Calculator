@@ -8,7 +8,7 @@ package uk.ac.rhul.cs2800;
  */
 public class CalculateState implements State {
 
-  Observer calculator = null;
+  private Observer calculator = null;
 
   @Override
   public void calculate() {
@@ -19,30 +19,27 @@ public class CalculateState implements State {
 
   @Override
   public void setExpression(String exp) {
-
+    System.out.println("This class only calls the calculate method.");
 
   }
 
   @Override
   public void quit() {
-
-
+    System.out.println("This class only calls the calculate method.");
   }
 
 
 
   @Override
   public void postfix() {
-
-
+    System.out.println("This class only calls the calculate method.");
   }
 
 
 
   @Override
   public void infix() {
-
-
+    System.out.println("This class only calls the calculate method.");
   }
 
 }

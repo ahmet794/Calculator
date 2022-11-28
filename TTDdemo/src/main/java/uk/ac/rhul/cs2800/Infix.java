@@ -10,16 +10,16 @@ import java.util.function.Consumer;
  */
 public class Infix implements State {
 
-  Consumer<OpType> type;
+  private Consumer<OpType> type;
 
   @Override
   public void calculate() {
-
+    System.out.println("This class oonly calls the infix method.");
   }
 
   @Override
   public void postfix() {
-
+    System.out.println("This class oonly calls the infix method.");
   }
 
   @Override
@@ -30,12 +30,12 @@ public class Infix implements State {
 
   @Override
   public void setExpression(String exp) {
-
+    System.out.println("This class oonly calls the infix method.");
   }
 
   @Override
   public void quit() {
-
+    System.out.println("This class oonly calls the infix method.");
   }
 
 }

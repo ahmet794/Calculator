@@ -9,6 +9,11 @@ package uk.ac.rhul.cs2800;
  */
 public class Menu {
 
+  private State expression;
+  private State calculate;
+  private State postfix;
+  private State infix;
+  private State quit;
   private State state;
   private boolean finished = false;
 
@@ -17,7 +22,13 @@ public class Menu {
    * 
    */
   public Menu() {
-    this.state = new ExpressionState(this);
+    expression = new ExpressionState(this);
+    calculate = new CalculateState();
+    postfix = new PostFixState();
+    infix = new Infix();
+    quit = new QuitState(this);
+
+
   }
 
   /**
@@ -55,6 +66,47 @@ public class Menu {
    */
   public boolean isFinished() {
     return finished;
+  }
+
+  /**
+   * Use the calculate state.
+   * 
+   */
+  public void calculate() {
+    state.calculate();
+  }
+
+  /**
+   * Use the expression state.
+   * 
+   * @param str is the String expression.
+   */
+  public void expressionHandler(String str) {
+    state.setExpression(str);
+  }
+
+  /**
+   * Use the postfix state.
+   * 
+   */
+  public void postFix() {
+    state.postfix();
+  }
+
+  /**
+   * Use the infix state.
+   * 
+   */
+  public void infix() {
+    state.infix();
+  }
+
+  /**
+   * Use the quit state.
+   * 
+   */
+  public void quit() {
+    state.quit();
   }
 
 
