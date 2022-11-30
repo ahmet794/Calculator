@@ -77,6 +77,13 @@ public class MyView implements ViewInterface {
    */
   @FXML
   private TextArea title;
+  
+  /**
+   * The version by the side of the title. 
+   * 
+   */
+  @FXML
+  private Text version;
 
   @Override
   public String getExpression() {
@@ -89,12 +96,12 @@ public class MyView implements ViewInterface {
   }
 
   @Override
-  public void addCalcObserver(Observer runnable) {
+  public void addCalcObserver(Observer observer) {
     calcButton.setOnAction(new EventHandler<ActionEvent>() {
 
       @Override
       public void handle(ActionEvent event) {
-        runnable.notifyObservers();
+        observer.notifyObservers();
       }
     });
 
