@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 
 class FloatEntryTest {
 
-  private EntryInt floatEntry;
+  private Entry floatEntry;
   private EntryFactory facEntry;
 
   @BeforeEach
   public void setup() {
     EntryFactory facEntry = new EntryFactory();
-    floatEntry = facEntry.createFloatEntry(17.0f);
+    floatEntry = facEntry.createEntry(17.0f);
   }
 
   // 1

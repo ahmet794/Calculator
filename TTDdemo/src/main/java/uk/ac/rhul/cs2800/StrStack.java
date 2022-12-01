@@ -25,7 +25,7 @@ public class StrStack {
    * 
    * @param string is the string that is added to the stack.
    */
-  public void push(EntryInt string) {
+  public void push(Entry string) {
     strStack.push(string);
   }
 

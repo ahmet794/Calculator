@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class StackTest {
   private Stack s;
-  private EntryInt element;
+  private Entry element;
 
 
   // 1
@@ -86,7 +86,7 @@ class StackTest {
   @Test
   void testPushandPop() {
     s.push(element);
-    EntryInt new_element = new FloatEntry(44.0f);
+    Entry new_element = new FloatEntry(44.0f);
     s.push(new_element);
     try {
       assertEquals(s.pop().getNum(), 44, "Test to see if pop() returns the popped value");
@@ -100,7 +100,7 @@ class StackTest {
   @Test
   void testTop() {
     s.push(element);
-    EntryInt new_element = new FloatEntry(44.0f);
+    Entry new_element = new FloatEntry(44.0f);
     s.push(new_element);
     s.pop();
     try {

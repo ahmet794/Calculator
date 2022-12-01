@@ -14,7 +14,8 @@ public interface Calculator {
    * @param str is expression to be calculated.
    * @return the result of the calculation.
    * @throws InvalidExpression when the expression is invalid.
+   * @throws BadTypeException when the stack is used.
    */
-  public float evaluate(String str) throws InvalidExpression;
+  public float evaluate(String str) throws InvalidExpression, BadTypeException;
 
 }

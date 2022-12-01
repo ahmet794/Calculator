@@ -7,16 +7,44 @@ package uk.ac.rhul.cs2800;
  *
  */
 public class RevPolishCalculator implements Calculator {
+  private NumStack val;
+  private Entry entry;
+  private EntryFactory facEntry;
+
+  /**
+   * Create a NumStack object and a EntryFactory to create entries.
+   * 
+   */
+  public RevPolishCalculator() {
+    val = new NumStack();
+    facEntry = new EntryFactory();
+  }
 
   @Override
-  public float evaluate(String str) throws InvalidExpression {
+  public float evaluate(String str) throws InvalidExpression, BadTypeException {
     String[] exp = str.split(" ");
     float sum = 0;
-    float val = 0;
-    for (int i = 0; i < exp.length - 1; i++) {
-      val = Float.parseFloat(exp[i]);
-      sum += val;
+    float value = 0;
+    String operation = "";
+
+    for (int i = 0; i < exp.length; i++) {
+      if (exp[i].matches("\\d")) {
+        value = Float.parseFloat(exp[i]);
+        entry = facEntry.createEntry(value);
+        val.push(entry);
+      } else {
+        operation = exp[i];
+      }
+
     }
+
+    if (operation.equals("+")) {
+      sum = val.pop() + val.pop();
+    } else {
+      sum = -val.pop() + val.pop();
+    }
+
     return sum;
   }
+
 }

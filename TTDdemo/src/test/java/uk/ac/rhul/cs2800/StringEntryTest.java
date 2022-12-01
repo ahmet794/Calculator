@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 
 class StringEntryTest {
 
-  private EntryInt strEntry;
+  private Entry strEntry;
   private EntryFactory facEntry;
 
   @BeforeEach
   public void setup() {
     EntryFactory facEntry = new EntryFactory();
-    strEntry = facEntry.createStringEntry("One");
+    strEntry = facEntry.createEntry("One");
   }
 
   // 1

@@ -6,7 +6,7 @@ package uk.ac.rhul.cs2800;
  * @author ahmet
  *
  */
-public class OperationEntry implements EntryInt {
+public class OperationEntry implements Entry {
 
   private Symbol symbol;
 

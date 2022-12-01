@@ -24,7 +24,7 @@ public class NumStack {
    * 
    * @param value is the element that is added.
    */
-  public void push(EntryInt value) {
+  public void push(Entry value) {
     numStack.push(value);
   }
 

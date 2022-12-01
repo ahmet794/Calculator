@@ -25,7 +25,7 @@ public class OpStack {
    * 
    * @param symbol is the ENUM that is added to the stack.
    */
-  public void push(EntryInt symbol) {
+  public void push(Entry symbol) {
     opStack.push(symbol);
   }
 

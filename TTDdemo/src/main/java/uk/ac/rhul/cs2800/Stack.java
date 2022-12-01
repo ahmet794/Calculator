@@ -12,7 +12,7 @@ import java.util.EmptyStackException;
 
 public class Stack {
 
-  ArrayList<EntryInt> list = new ArrayList<EntryInt>();
+  ArrayList<Entry> list = new ArrayList<Entry>();
 
   int size;
 
@@ -30,7 +30,7 @@ public class Stack {
    * 
    * @param i is the value of the element.
    */
-  public void push(EntryInt i) {
+  public void push(Entry i) {
     list.add(i);
   }
 
@@ -39,11 +39,11 @@ public class Stack {
    * 
    * @return the value of the removed element
    */
-  public EntryInt pop() {
+  public Entry pop() {
     if (list.size() == 0) {
       throw new EmptyStackException();
     }
-    EntryInt value = list.get(list.size() - 1);
+    Entry value = list.get(list.size() - 1);
     list.remove(list.size() - 1);
     return value;
   }
@@ -53,7 +53,7 @@ public class Stack {
    * 
    * @return the value of the newest element.
    */
-  public EntryInt top() {
+  public Entry top() {
     return list.get(list.size() - 1);
   }
 
