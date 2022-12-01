@@ -37,6 +37,19 @@ public class RevPolishCalculator implements Calculator {
       }
     }
 
+    return operation(operation, val);
+
+  }
+
+  /**
+   * This method will.
+   * 
+   * @return the sum
+   * @throws BadTypeException if it is the wrong type.
+   */
+  public float operation(String operation, NumStack val) throws BadTypeException {
+    float sum = 0;
+
     if (operation.equals("+")) {
       sum = val.pop() + val.pop();
     } else if (operation.equals("-")) {
@@ -48,7 +61,6 @@ public class RevPolishCalculator implements Calculator {
       float valone = val.pop();
       sum = valone / valtwo;
     }
-
 
     return sum;
   }
