@@ -34,10 +34,13 @@ public class RevPolishCalculator implements Calculator {
         val.push(entry);
       } else {
         operation = exp[i];
+        while (!(val.isEmpty())) {
+          sum = operation(operation, val, sum);
+        }
       }
     }
 
-    return operation(operation, val);
+    return sum;
 
   }
 
@@ -47,15 +50,17 @@ public class RevPolishCalculator implements Calculator {
    * @return the sum
    * @throws BadTypeException if it is the wrong type.
    */
-  public float operation(String operation, NumStack val) throws BadTypeException {
-    float sum = 0;
+  public float operation(String operation, NumStack val, float sum) throws BadTypeException {
 
     if (operation.equals("+")) {
-      sum = val.pop() + val.pop();
+      sum = val.pop() + sum;
     } else if (operation.equals("-")) {
-      sum = -val.pop() + val.pop();
+      sum = val.pop() - sum;
     } else if (operation.equals("*")) {
-      sum = val.pop() * val.pop();
+      if (sum == 0) {
+        sum = val.pop();
+      }
+      sum = val.pop() * sum;
     } else if (operation.equals("/")) {
       float valtwo = val.pop();
       float valone = val.pop();
