@@ -36,6 +36,9 @@ public class RevPolishCalculator implements Calculator {
         operation = exp[i];
         while (!(val.isEmpty())) {
           sum = operation(operation, val, sum);
+          if (exp.length > 3 && val.size() == 1) {
+            break;
+          }
         }
       }
     }

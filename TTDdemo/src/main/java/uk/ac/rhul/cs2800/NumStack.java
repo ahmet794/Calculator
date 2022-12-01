@@ -48,6 +48,15 @@ public class NumStack {
     return numStack.size() == 0;
   }
 
+  /**
+   * This method gives the size of the stack.
+   * 
+   * @return the size.
+   */
+  public int size() {
+    return numStack.size();
+  }
+
 
 
 }
