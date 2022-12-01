@@ -40,8 +40,10 @@ public class RevPolishCalculator implements Calculator {
 
     if (operation.equals("+")) {
       sum = val.pop() + val.pop();
-    } else {
+    } else if (operation.equals("-")) {
       sum = -val.pop() + val.pop();
+    } else if (operation.equals("*")) {
+      sum = val.pop() * val.pop();
     }
 
     return sum;
