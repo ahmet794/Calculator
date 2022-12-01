@@ -28,14 +28,13 @@ public class RevPolishCalculator implements Calculator {
     String operation = "";
 
     for (int i = 0; i < exp.length; i++) {
-      if (exp[i].matches("\\d")) {
+      if (exp[i].matches("\\d+")) {
         value = Float.parseFloat(exp[i]);
         entry = facEntry.createEntry(value);
         val.push(entry);
       } else {
         operation = exp[i];
       }
-
     }
 
     if (operation.equals("+")) {
@@ -44,7 +43,12 @@ public class RevPolishCalculator implements Calculator {
       sum = -val.pop() + val.pop();
     } else if (operation.equals("*")) {
       sum = val.pop() * val.pop();
+    } else if (operation.equals("/")) {
+      float valtwo = val.pop();
+      float valone = val.pop();
+      sum = valone / valtwo;
     }
+
 
     return sum;
   }
