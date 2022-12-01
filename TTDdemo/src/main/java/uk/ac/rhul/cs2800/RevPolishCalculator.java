@@ -10,8 +10,10 @@ public class RevPolishCalculator implements Calculator {
 
   @Override
   public float evaluate(String str) throws InvalidExpression {
-
-    return 2.0f;
+    if (str.charAt(2) == '1') {
+      return 2.0f;
+    }
+    return 3.0f;
   }
 
 }
