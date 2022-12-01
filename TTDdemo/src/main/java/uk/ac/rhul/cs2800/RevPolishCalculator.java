@@ -10,10 +10,13 @@ public class RevPolishCalculator implements Calculator {
 
   @Override
   public float evaluate(String str) throws InvalidExpression {
-    if (str.charAt(2) == '1') {
-      return 2.0f;
+    String[] exp = str.split(" ");
+    float sum = 0;
+    float val = 0;
+    for (int i = 0; i < exp.length - 1; i++) {
+      val = Float.parseFloat(exp[i]);
+      sum += val;
     }
-    return 3.0f;
+    return sum;
   }
-
 }

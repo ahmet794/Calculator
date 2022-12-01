@@ -21,9 +21,12 @@ class RevPolishCalculatorTest {
     try {
       assertEquals(postfix.evaluate(str), 2.0f,
           "Using the postfix type and adding 1 to 1 should return 2 as a float.");
-      String val = "1 2 +";
-      assertEquals(postfix.evaluate(val), 3.0f,
+      str = "1 2 +";
+      assertEquals(postfix.evaluate(str), 3.0f,
           "Using the postfix type and adding 1 to 2 should return 3 as a float.");
+      str = "1 3 +";
+      assertEquals(postfix.evaluate(str), 4.0f,
+          "Using the postfix type and adding 1 to 3 should return 4 as a float.");
     } catch (InvalidExpression e) {
       ;
     }
