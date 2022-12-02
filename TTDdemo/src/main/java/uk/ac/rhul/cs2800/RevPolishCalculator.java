@@ -23,9 +23,10 @@ public class RevPolishCalculator implements Calculator {
   @Override
   public float evaluate(String str) throws InvalidExpression, BadTypeException {
     String[] exp = str.split(" ");
+    String operation = "";
+    int count = 0;
     float sum = 0;
     float value = 0;
-    String operation = "";
 
     for (int i = 0; i < exp.length; i++) {
       if (exp[i].matches("\\d+")) {
@@ -34,11 +35,11 @@ public class RevPolishCalculator implements Calculator {
         val.push(entry);
       } else {
         operation = exp[i];
-        while (!(val.isEmpty())) {
-          sum = operation(operation, val, sum);
-          if (exp.length > 3 && val.size() == 1) {
+        for (int j = 0; j < 2; j++) {
+          if (val.isEmpty()) {
             break;
           }
+          sum = operation(operation, val, sum);
         }
       }
     }

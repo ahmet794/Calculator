@@ -90,7 +90,9 @@ class RevPolishCalculatorTest {
       str = "5 1 2 + *";
       assertEquals(postfix.evaluate(str), 15.0f,
           "Adding 1 to 2 and multiplying by 5 should return 15 as a float.");
-
+      str = "12 2 4 6 + * *";
+      assertEquals(postfix.evaluate(str), 240.0f,
+          "Adding 6 to 4 and multiplying by 2 and then multiplying by 12 should return 240 as a float.");
     } catch (InvalidExpression | BadTypeException e) {
       ;
     }
