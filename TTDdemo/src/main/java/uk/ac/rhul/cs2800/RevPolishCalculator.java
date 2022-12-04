@@ -24,7 +24,6 @@ public class RevPolishCalculator implements Calculator {
   public float evaluate(String str) throws InvalidExpression, BadTypeException {
     String[] exp = str.split(" ");
     String operation = "";
-    int count = 0;
     float sum = 0;
     float value = 0;
 
@@ -35,12 +34,7 @@ public class RevPolishCalculator implements Calculator {
         val.push(entry);
       } else {
         operation = exp[i];
-        for (int j = 0; j < 2; j++) {
-          if (val.isEmpty()) {
-            break;
-          }
-          sum = operation(operation, val, sum);
-        }
+        sum = operation(operation, val, sum);
       }
     }
 
@@ -56,19 +50,30 @@ public class RevPolishCalculator implements Calculator {
    */
   public float operation(String operation, NumStack val, float sum) throws BadTypeException {
 
+
+    float rightop = val.pop();
+    float leftop = val.pop();
+
+
     if (operation.equals("+")) {
-      sum = val.pop() + sum;
+      sum = leftop + rightop;
+      entry = facEntry.createEntry(sum);
+      val.push(entry);
+
     } else if (operation.equals("-")) {
-      sum = val.pop() - sum;
+      sum = leftop - rightop;
+      entry = facEntry.createEntry(sum);
+      val.push(entry);
+
     } else if (operation.equals("*")) {
-      if (sum == 0) {
-        sum = val.pop();
-      }
-      sum = val.pop() * sum;
+      sum = leftop * rightop;
+      entry = facEntry.createEntry(sum);
+      val.push(entry);
+
     } else if (operation.equals("/")) {
-      float valtwo = val.pop();
-      float valone = val.pop();
-      sum = valone / valtwo;
+      sum = leftop / rightop;
+      entry = facEntry.createEntry(sum);
+      val.push(entry);
     }
 
     return sum;
