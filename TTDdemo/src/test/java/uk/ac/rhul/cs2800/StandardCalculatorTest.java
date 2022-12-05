@@ -18,14 +18,42 @@ class StandardCalculatorTest {
   void testEvaluateAddition() {
     try {
       assertEquals(infix.evaluate(str), 3.0f,
-          "Using the postfix type and adding 1 to 2 should return 3 as a float.");
+          "Using the infix type and adding 1 to 2 should return 3 as a float.");
       str = "2 + 6";
       assertEquals(infix.evaluate(str), 8.0f,
-          "Using the postfix type and adding 2 to 6 should return 8 as a float.");
+          "Using the infix type and adding 2 to 6 should return 8 as a float.");
+      str = "1 + 3";
+      assertEquals(infix.evaluate(str), 4.0f,
+          "Using the infix tpye and adding 1 to 3 should return 4 as a float.");
     } catch (InvalidExpression e) {
       ;
     }
   }
 
+  @Test
+  void testparsePostfix() {
+    str = "1 + 3";
+    try {
+      assertEquals(infix.parsePostfix(str), "1 3 +",
+          "Infix expression 1 + 3  should be 1 3 + in postfix type.");
+      str = "1 + 4";
+      assertEquals(infix.parsePostfix(str), "1 4 +",
+          "Infix expression 1 + 4  should be 1 4 + in postfix type.");
+      str = "4 - 1";
+      assertEquals(infix.parsePostfix(str), "4 1 -",
+          "Infix expression 4 - 1 should be 4 1 - in postfix type.");
+    } catch (BadTypeException e) {
+      ;
+    }
+
+  }
+
+  @Test
+  void testEnum() {
+    String plus = "+";
+    String converted = infix.parseOp(plus);
+    Symbol op = Symbol.valueOf(converted);
+    assertTrue(op == Symbol.PLUS);
+  }
 
 }
