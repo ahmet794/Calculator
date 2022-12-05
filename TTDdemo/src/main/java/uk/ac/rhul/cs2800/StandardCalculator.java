@@ -24,16 +24,11 @@ public class StandardCalculator implements Calculator {
   }
 
   @Override
-  public float evaluate(String str) throws InvalidExpression {
-    String[] exp = str.split(" ");
-    float sum = 0;
-    float value;
+  public float evaluate(String str)
+      throws InvalidExpression, NumberFormatException, BadTypeException {
 
-    for (int i = 0; i < exp.length; i++) {
-      sum++;
-    }
 
-    return sum;
+    return Float.parseFloat(parsePostfix(str));
 
   }
 

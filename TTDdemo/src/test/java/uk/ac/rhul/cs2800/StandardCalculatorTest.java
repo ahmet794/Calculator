@@ -25,7 +25,7 @@ class StandardCalculatorTest {
       str = "1 + 3";
       assertEquals(infix.evaluate(str), 4.0f,
           "Using the infix tpye and adding 1 to 3 should return 4 as a float.");
-    } catch (InvalidExpression e) {
+    } catch (InvalidExpression | NumberFormatException | BadTypeException e) {
       ;
     }
   }
