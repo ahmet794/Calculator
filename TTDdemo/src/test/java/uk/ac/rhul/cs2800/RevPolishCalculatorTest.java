@@ -20,10 +20,10 @@ class RevPolishCalculatorTest {
   void testEvaluateAddition() {
     try {
       assertEquals(postfix.evaluate(str), 3.0f,
-          "Using the postfix type and adding 1 to 1 should return 2 as a float.");
+          "Using the postfix type and adding 1 to 2 should return 3 as a float.");
       str = "2 6 +";
       assertEquals(postfix.evaluate(str), 8.0f,
-          "Using the postfix type and adding 1 to 2 should return 3 as a float.");
+          "Using the postfix type and adding 2 to 6 should return 8 as a float.");
       str = "1 3 +";
       assertEquals(postfix.evaluate(str), 4.0f,
           "Using the postfix type and adding 1 to 3 should return 4 as a float.");
