@@ -34,7 +34,7 @@ public class RevPolishCalculator implements Calculator {
         val.push(entry);
       } else {
         operation = exp[i];
-        sum = operation(operation, val, sum);
+        sum = operate(operation, val, sum);
       }
     }
 
@@ -48,7 +48,7 @@ public class RevPolishCalculator implements Calculator {
    * @return the sum
    * @throws BadTypeException if it is the wrong type.
    */
-  public float operation(String operation, NumStack val, float sum) throws BadTypeException {
+  public float operate(String operation, NumStack val, float sum) throws BadTypeException {
 
 
     float rightop = val.pop();

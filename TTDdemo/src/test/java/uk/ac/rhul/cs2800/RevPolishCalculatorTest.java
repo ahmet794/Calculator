@@ -81,6 +81,7 @@ class RevPolishCalculatorTest {
     }
   }
 
+  // Testing if the method works with two or more operators.
   @Test
   void testEvaluateTwoOp() {
     try {
@@ -96,6 +97,29 @@ class RevPolishCalculatorTest {
       str = "5 4 3 2 1 + + * *";
       assertEquals(postfix.evaluate(str), 120.0f,
           "Adding 1 to 2 and then adding 3 then multiplying by 4 and 5 should return 120 as a float.");
+    } catch (InvalidExpression | BadTypeException e) {
+      ;
+    }
+  }
+
+  @Test
+  void testEvaluateFully() {
+    str = "2 6 7 + -";
+    try {
+      assertEquals(postfix.evaluate(str), -11.0f,
+          "Adding 6 to 7 then removing 2 should give 13 as a float.");
+     str = "6 7 + 2 -";
+     assertEquals(postfix.evaluate(str), 11.0f,
+         "Adding 6 to 7 then removing 2 should give 13 as a float.");
+     str = "5 6 7 * + 2 -";
+     assertEquals(postfix.evaluate(str), 45.0f,
+         "Adding 6 to 7 then removing 2 should give 13 as a float.");
+     str = "5 6 7 + * 2 -";
+     assertEquals(postfix.evaluate(str), 63.0f,
+         "Adding 6 to 7 then removing 2 should give 13 as a float.");
+     str = "5 6 7 + * 5 /";
+     assertEquals(postfix.evaluate(str), 13.0f,
+         "Adding 6 to 7 then removing 2 should give 13 as a float.");
     } catch (InvalidExpression | BadTypeException e) {
       ;
     }
