@@ -43,11 +43,14 @@ public class RevPolishCalculator implements Calculator {
   }
 
   /**
-   * This method will.
+   * This method will first assign the right operator of the expression and then the left operator
+   * by popping the stack. Then it will choose which operation to use and then push it back to the
+   * stack.
    * 
    * @return the sum
-   * @throws BadTypeException if it is the wrong type.
+   * @throws BadTypeException if the wrong type is getter is called.
    */
+  // BadTypeException wont ever be called.
   public float operate(String operation, NumStack val, float sum) throws BadTypeException {
 
 
