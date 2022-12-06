@@ -10,6 +10,7 @@ public class StandardCalculator implements Calculator {
   private OpStack operationStack;
   private Entry entry;
   private EntryFactory facEntry;
+  private RevPolishCalculator postfix;
 
   /**
    * This constructor initialises the OpStack, StrStack and EntryFactory objects to be used inside
@@ -19,14 +20,13 @@ public class StandardCalculator implements Calculator {
   public StandardCalculator() {
     operationStack = new OpStack();
     facEntry = new EntryFactory();
+    postfix = new RevPolishCalculator();
   }
 
   @Override
-  public float evaluate(String str)
-      throws InvalidExpression, NumberFormatException, BadTypeException {
+  public float evaluate(String str) throws InvalidExpression, BadTypeException {
 
-
-    return Float.parseFloat(parsePostfix(str));
+    return postfix.evaluate(parsePostfix(str));
 
   }
 
@@ -47,8 +47,21 @@ public class StandardCalculator implements Calculator {
         postfix += (exp[i] + " ");
       } else {
         operation = Symbol.valueOf(parseOp(exp[i]));
-        entry = facEntry.createEntry(operation);
-        operationStack.push(entry);
+        if (operation == Symbol.LEFT_BRACKET) {
+          while (operation != Symbol.RIGHT_BRACKET) {
+            i++;
+            postfix += (exp[i] + " ");
+            if (!(exp[i].matches("\\d+"))) {
+              operation = Symbol.valueOf(parseOp(exp[i]));
+            }
+          }
+          postfix = parsePostfix(postfix) + " ";
+        } else {
+          if (!(operation == Symbol.RIGHT_BRACKET)) {
+            entry = facEntry.createEntry(operation);
+            operationStack.push(entry);
+          }
+        }
       }
     }
     while (!(operationStack.isEmpty())) {

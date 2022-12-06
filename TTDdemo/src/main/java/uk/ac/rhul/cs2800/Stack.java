@@ -54,6 +54,9 @@ public class Stack {
    * @return the value of the newest element.
    */
   public Entry top() {
+    if (list.size() == 0) {
+      throw new EmptyStackException();
+    }
     return list.get(list.size() - 1);
   }
 

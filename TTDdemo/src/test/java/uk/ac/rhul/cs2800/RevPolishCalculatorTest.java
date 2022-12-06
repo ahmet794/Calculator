@@ -108,18 +108,20 @@ class RevPolishCalculatorTest {
     try {
       assertEquals(postfix.evaluate(str), -11.0f,
           "Adding 6 to 7 then removing 2 should give 13 as a float.");
-     str = "6 7 + 2 -";
-     assertEquals(postfix.evaluate(str), 11.0f,
-         "Adding 6 to 7 then removing 2 should give 13 as a float.");
-     str = "5 6 7 * + 2 -";
-     assertEquals(postfix.evaluate(str), 45.0f,
-         "Adding 6 to 7 then removing 2 should give 13 as a float.");
-     str = "5 6 7 + * 2 -";
-     assertEquals(postfix.evaluate(str), 63.0f,
-         "Adding 6 to 7 then removing 2 should give 13 as a float.");
-     str = "5 6 7 + * 5 /";
-     assertEquals(postfix.evaluate(str), 13.0f,
-         "Adding 6 to 7 then removing 2 should give 13 as a float.");
+      str = "6 7 + 2 -";
+      assertEquals(postfix.evaluate(str), 11.0f,
+          "Adding 6 to 7 then removing 2 should give 13 as a float.");
+      str = "5 6 7 * + 2 -";
+      assertEquals(postfix.evaluate(str), 45.0f,
+          "Adding 6 to 7 then removing 2 should give 13 as a float.");
+      str = "5 6 7 + * 2 -";
+      assertEquals(postfix.evaluate(str), 63.0f,
+          "Adding 6 to 7 then removing 2 should give 13 as a float.");
+      str = "5 6 7 + * 5 /";
+      assertEquals(postfix.evaluate(str), 13.0f,
+          "Adding 6 to 7 then removing 2 should give 13 as a float.");
+      str = "1 3 + 4 *";
+      assertEquals(postfix.evaluate(str), 16.0f);
     } catch (InvalidExpression | BadTypeException e) {
       ;
     }

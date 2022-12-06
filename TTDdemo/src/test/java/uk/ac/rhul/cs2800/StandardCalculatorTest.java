@@ -48,6 +48,11 @@ class StandardCalculatorTest {
       str = "1 * 8 + 4";
       assertEquals(infix.parsePostfix(str), "1 8 4 + *",
           "Infix expression 1 * 8 + 4  should be 1 8 4 + * in postfix type.");
+      str = "( 1 + 3 ) * 4";
+      assertEquals(infix.parsePostfix(str), "1 3 + 4 *",
+          "Infix expression ( 1 + 3 ) * 4 should be 1 3 + 4 * in postfix type.");
+      str = "( 4 * 5 ) + 5 / 5";
+      assertEquals(infix.parsePostfix(str), "4 5 * 5 5 / +");
     } catch (BadTypeException e) {
       ;
     }
@@ -71,7 +76,7 @@ class StandardCalculatorTest {
       str = "1 * 8 + 4";
       assertEquals(infix.evaluate(str), 12.0f,
           "Multiplying 1 by 8 and then adding 4 should return 12 as a float.");
-      str = "4 * 5 + 5 / 5";
+      str = "( 4 * 5 ) + 5 / 5";
       assertEquals(infix.evaluate(str), 21.0f,
           "Multiplying 4 by 5 then dividing 5 by 5 and adding them should return 21 as a float.");
     } catch (NumberFormatException | InvalidExpression | BadTypeException e) {
@@ -79,4 +84,13 @@ class StandardCalculatorTest {
     }
   }
 
+  @Test
+  void testEvaluateBrackets() throws NumberFormatException, InvalidExpression, BadTypeException {
+    str = "( 1 + 3 ) * 4";
+    assertEquals(infix.evaluate(str), 16.0f,
+        "Adding 1 to 3 and then multiplying by 4 should return 12.0f.");
+    str = "( 5 + 3 ) * 4";
+    assertEquals(infix.evaluate(str), 32.0f,
+        "Adding 5 to 3 and then multiplying by 4 should return 32.0f.");
+  }
 }
