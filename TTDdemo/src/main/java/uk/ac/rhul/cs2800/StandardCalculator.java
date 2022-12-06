@@ -8,7 +8,6 @@ package uk.ac.rhul.cs2800;
  */
 public class StandardCalculator implements Calculator {
   private OpStack operationStack;
-  private StrStack stringStack;
   private Entry entry;
   private EntryFactory facEntry;
 
@@ -19,7 +18,6 @@ public class StandardCalculator implements Calculator {
    */
   public StandardCalculator() {
     operationStack = new OpStack();
-    stringStack = new StrStack();
     facEntry = new EntryFactory();
   }
 
@@ -54,7 +52,11 @@ public class StandardCalculator implements Calculator {
       }
     }
     while (!(operationStack.isEmpty())) {
-      postfix += operationStack.pop().toString();
+      if (operationStack.size() == 1) {
+        postfix += operationStack.pop().toString();
+      } else {
+        postfix += operationStack.pop().toString() + " ";
+      }
     }
     return postfix;
   }
@@ -68,17 +70,23 @@ public class StandardCalculator implements Calculator {
   public String parseOp(String operator) {
     if (operator.equals("+")) {
       operator = "PLUS";
+
     } else if (operator.equals("-")) {
       operator = "MINUS";
+
     } else if (operator.equals("*")) {
       operator = "TIMES";
+
     } else if (operator.equals("/")) {
       operator = "DIVIDE";
+
     } else if (operator.equals("(")) {
       operator = "LEFT_BRACKET";
+
     } else if (operator.equals(")")) {
       operator = "RIGHT_BRACKET";
     }
+
     return operator;
   }
 

@@ -42,6 +42,12 @@ class StandardCalculatorTest {
       str = "4 - 1";
       assertEquals(infix.parsePostfix(str), "4 1 -",
           "Infix expression 4 - 1 should be 4 1 - in postfix type.");
+      str = "4 + 1 * 8";
+      assertEquals(infix.parsePostfix(str), "4 1 8 * +",
+          "Infix expression 4 + 1 * 8  should be 4 1 8 * + in postfix type.");
+      str = "1 * 8 + 4";
+      assertEquals(infix.parsePostfix(str), "1 8 4 + *",
+          "Infix expression 1 * 8 + 4  should be 1 8 4 + * in postfix type.");
     } catch (BadTypeException e) {
       ;
     }
@@ -54,6 +60,23 @@ class StandardCalculatorTest {
     String converted = infix.parseOp(plus);
     Symbol op = Symbol.valueOf(converted);
     assertTrue(op == Symbol.PLUS);
+  }
+
+  @Test
+  void testEvaluateAddMult() {
+    try {
+      str = "4 + 1 * 8";
+      assertEquals(infix.evaluate(str), 12.0f,
+          "Multiplying 1 by 8 and then adding 4 should return 12 as a float.");
+      str = "1 * 8 + 4";
+      assertEquals(infix.evaluate(str), 12.0f,
+          "Multiplying 1 by 8 and then adding 4 should return 12 as a float.");
+      str = "4 * 5 + 5 / 5";
+      assertEquals(infix.evaluate(str), 21.0f,
+          "Multiplying 4 by 5 then dividing 5 by 5 and adding them should return 21 as a float.");
+    } catch (NumberFormatException | InvalidExpression | BadTypeException e) {
+      ;
+    }
   }
 
 }

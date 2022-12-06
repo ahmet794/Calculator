@@ -49,6 +49,15 @@ public class OpStack {
     return opStack.size() == 0;
   }
 
+  /**
+   * This method checks the size of the stack.
+   * 
+   * @return the size of the stack.
+   */
+  public int size() {
+    return opStack.size();
+  }
+
 
 
 }
