@@ -8,7 +8,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
@@ -20,6 +19,7 @@ import javafx.scene.text.Text;
  * @author ahmet
  *
  */
+// This code is inspired by Dave's many many examples, MVC-Separated.
 public class MyView implements ViewInterface {
 
   /**
@@ -76,10 +76,10 @@ public class MyView implements ViewInterface {
    * 
    */
   @FXML
-  private TextArea title;
-  
+  private Text title;
+
   /**
-   * The version by the side of the title. 
+   * Version on the side of the title.
    * 
    */
   @FXML
@@ -96,12 +96,12 @@ public class MyView implements ViewInterface {
   }
 
   @Override
-  public void addCalcObserver(Observer observer) {
+  public void addCalcObserver(Observer runnable) {
     calcButton.setOnAction(new EventHandler<ActionEvent>() {
 
       @Override
       public void handle(ActionEvent event) {
-        observer.notifyObservers();
+        runnable.notifyObservers();
       }
     });
 

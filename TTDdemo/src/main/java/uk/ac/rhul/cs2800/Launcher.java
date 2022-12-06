@@ -42,7 +42,7 @@ public class Launcher extends Application {
       e.printStackTrace();
     }
     myController.addView(loader.getController());
-    scene.getStylesheets().add(getClass().getResource("myView.css").toExternalForm());
+    scene.getStylesheets().add(getClass().getResource("/myView.css").toExternalForm());
     primaryStage.setScene(scene);
     primaryStage.show();
 
