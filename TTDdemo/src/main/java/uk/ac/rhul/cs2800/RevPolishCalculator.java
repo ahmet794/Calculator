@@ -24,7 +24,7 @@ public class RevPolishCalculator implements Calculator {
   public float evaluate(String str) throws InvalidExpression, BadTypeException {
     String[] exp = str.split(" ");
     String operation = "";
-    float sum = 0;
+    float result = 0;
     float value = 0;
 
     for (int i = 0; i < exp.length; i++) {
@@ -34,11 +34,11 @@ public class RevPolishCalculator implements Calculator {
         val.push(entry);
       } else {
         operation = exp[i];
-        sum = operate(operation, val, sum);
+        result = operate(operation, val, result);
       }
     }
 
-    return sum;
+    return result;
 
   }
 
@@ -51,7 +51,7 @@ public class RevPolishCalculator implements Calculator {
    * @throws BadTypeException if the wrong type is getter is called.
    */
   // BadTypeException wont ever be called.
-  public float operate(String operation, NumStack val, float sum) throws BadTypeException {
+  public float operate(String operation, NumStack val, float result) throws BadTypeException {
 
 
     float rightop = val.pop();
@@ -59,27 +59,27 @@ public class RevPolishCalculator implements Calculator {
 
 
     if (operation.equals("+")) {
-      sum = leftop + rightop;
-      entry = facEntry.createEntry(sum);
+      result = leftop + rightop;
+      entry = facEntry.createEntry(result);
       val.push(entry);
 
     } else if (operation.equals("-")) {
-      sum = leftop - rightop;
-      entry = facEntry.createEntry(sum);
+      result = leftop - rightop;
+      entry = facEntry.createEntry(result);
       val.push(entry);
 
     } else if (operation.equals("*")) {
-      sum = leftop * rightop;
-      entry = facEntry.createEntry(sum);
+      result = leftop * rightop;
+      entry = facEntry.createEntry(result);
       val.push(entry);
 
     } else if (operation.equals("/")) {
-      sum = leftop / rightop;
-      entry = facEntry.createEntry(sum);
+      result = leftop / rightop;
+      entry = facEntry.createEntry(result);
       val.push(entry);
     }
 
-    return sum;
+    return result;
   }
 
 }

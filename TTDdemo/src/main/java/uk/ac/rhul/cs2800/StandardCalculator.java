@@ -50,12 +50,18 @@ public class StandardCalculator implements Calculator {
         if (operation == Symbol.LEFT_BRACKET) {
           while (operation != Symbol.RIGHT_BRACKET) {
             i++;
-            postfix += (exp[i] + " ");
             if (!(exp[i].matches("\\d+"))) {
               operation = Symbol.valueOf(parseOp(exp[i]));
+              if (operation != Symbol.RIGHT_BRACKET) {
+                entry = facEntry.createEntry(operation);
+                operationStack.push(entry);
+              } else if (operation == Symbol.RIGHT_BRACKET) {
+                postfix += operationStack.pop() + " ";
+              }
+            } else {
+              postfix += (exp[i] + " ");
             }
           }
-          postfix = parsePostfix(postfix) + " ";
         } else {
           if (!(operation == Symbol.RIGHT_BRACKET)) {
             entry = facEntry.createEntry(operation);
@@ -64,6 +70,7 @@ public class StandardCalculator implements Calculator {
         }
       }
     }
+
     while (!(operationStack.isEmpty())) {
       if (operationStack.size() == 1) {
         postfix += operationStack.pop().toString();
