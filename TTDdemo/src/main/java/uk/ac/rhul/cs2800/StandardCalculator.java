@@ -7,18 +7,18 @@ package uk.ac.rhul.cs2800;
  *
  */
 public class StandardCalculator implements Calculator {
-  private OpStack operationStack;
+  private OpStack operatorStack;
   private Entry entry;
   private EntryFactory facEntry;
   private RevPolishCalculator postfix;
 
   /**
-   * This constructor initialises the OpStack, StrStack and EntryFactory objects to be used inside
-   * this class.
+   * This constructor initialises the OpStack, RevPolishCalculator and EntryFactory objects to be
+   * used inside this class.
    * 
    */
   public StandardCalculator() {
-    operationStack = new OpStack();
+    operatorStack = new OpStack();
     facEntry = new EntryFactory();
     postfix = new RevPolishCalculator();
   }
@@ -31,7 +31,8 @@ public class StandardCalculator implements Calculator {
   }
 
   /**
-   * This method will parse infix expressions to postfix.
+   * This method will parse infix expressions to postfix. It is very similar to shunting yard
+   * algorithm.
    * 
    * @param str is the expression to be parsed.
    * @return postfix expression.
@@ -41,40 +42,49 @@ public class StandardCalculator implements Calculator {
   public String parsePostfix(String str) throws BadTypeException {
     String[] exp = str.split(" ");
     String postfix = "";
-    Symbol operation = null;
+    Symbol operator = null;
+    // Create a String array and then iterate until a number is not found.
     for (int i = 0; i < exp.length; i++) {
       if (exp[i].matches("\\d+")) {
         postfix += (exp[i] + " ");
       } else {
-        operation = Symbol.valueOf(parseOp(exp[i]));
-        if (operation == Symbol.LEFT_BRACKET) {
-          while (operation != Symbol.RIGHT_BRACKET) {
+        operator = Symbol.valueOf(parseOp(exp[i]));
+
+        // When a left bracket is found its parsing is done in a separate way.
+        if (operator == Symbol.LEFT_BRACKET) {
+          while (operator != Symbol.RIGHT_BRACKET) {
             i++;
             if (!(exp[i].matches("\\d+"))) {
-              operation = Symbol.valueOf(parseOp(exp[i]));
-              if (operation != Symbol.RIGHT_BRACKET) {
-                entry = facEntry.createEntry(operation);
-                operationStack.push(entry);
-              } else if (operation == Symbol.RIGHT_BRACKET) {
-                while (!(operationStack.isEmpty())) {
-                  postfix += operationStack.pop() + " ";
+              operator = Symbol.valueOf(parseOp(exp[i]));
+
+              // When the operator is not a right bracket push it in to operatorStack.
+              // If it is a right bracket then pop the stack and then add it to postfix.
+              if (operator != Symbol.RIGHT_BRACKET) {
+                entry = facEntry.createEntry(operator);
+                operatorStack.push(entry);
+              } else if (operator == Symbol.RIGHT_BRACKET) {
+                while (!(operatorStack.isEmpty())) {
+                  postfix += operatorStack.pop() + " ";
                 }
               }
+              // If any operators are not found then add it to the postfix.
             } else {
-              postfix += (exp[i] + " ");
+              postfix += exp[i] + " ";
             }
           }
+          // Else statement is called if the operator is not a left bracket.
         } else {
-          if (!(operation == Symbol.RIGHT_BRACKET)) {
-            entry = facEntry.createEntry(operation);
-            operationStack.push(entry);
+          if (!(operator == Symbol.RIGHT_BRACKET)) {
+            entry = facEntry.createEntry(operator);
+            operatorStack.push(entry);
           }
         }
       }
     }
-
-    while (!(operationStack.isEmpty())) {
-      postfix += operationStack.pop() + " ";
+    // After the for loop is done pop the stack that was created during the for long and add it to
+    // postfix.
+    while (!(operatorStack.isEmpty())) {
+      postfix += operatorStack.pop() + " ";
     }
     return postfix;
   }

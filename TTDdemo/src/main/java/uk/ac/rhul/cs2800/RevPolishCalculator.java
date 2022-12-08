@@ -27,8 +27,11 @@ public class RevPolishCalculator implements Calculator {
     float result = 0;
     float value = 0;
 
+    // Iterate through the String array that has been created.
     for (int i = 0; i < exp.length; i++) {
       if (exp[i].matches("\\d+")) {
+        // If at the ith index, it is a number then parse the string to a float and push it to the
+        // stack.
         value = Float.parseFloat(exp[i]);
         entry = facEntry.createEntry(value);
         val.push(entry);
