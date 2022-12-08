@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class StrStackTest {
 
   private StrStack strS;
-  private EntryInt string;
+  private Entry string;
 
   @BeforeEach
   public void setup() {
@@ -42,7 +42,7 @@ class StrStackTest {
   // Testing two pushes and and two pop methods.
   @Test
   void testStrStackpop() {
-    EntryInt str = new StringEntry("Two");
+    Entry str = new StringEntry("Two");
     strS.push(string);
     strS.push(str);
     try {
@@ -60,7 +60,7 @@ class StrStackTest {
   @Test
   void testStrStacktop() {
     strS.push(string);
-    EntryInt str = new StringEntry("Two");
+    Entry str = new StringEntry("Two");
     strS.push(str);
     try {
       assertEquals(strS.top(), "Two",
@@ -75,8 +75,8 @@ class StrStackTest {
   @Test
   void testStrStacktopandpush() {
     strS.push(string);
-    EntryInt str = new StringEntry("Two");
-    EntryInt three = new StringEntry("Three");
+    Entry str = new StringEntry("Two");
+    Entry three = new StringEntry("Three");
     strS.push(str);
     strS.push(three);
     try {

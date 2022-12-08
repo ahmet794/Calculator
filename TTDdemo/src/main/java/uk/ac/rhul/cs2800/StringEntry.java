@@ -6,7 +6,7 @@ package uk.ac.rhul.cs2800;
  * @author ahmet
  *
  */
-public class StringEntry implements EntryInt {
+public class StringEntry implements Entry {
 
   private String str;
 

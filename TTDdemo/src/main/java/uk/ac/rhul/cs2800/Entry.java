@@ -6,7 +6,7 @@ package uk.ac.rhul.cs2800;
  * @author ahmet
  *
  */
-public interface EntryInt {
+public interface Entry {
   /**
    * This method should return the string of the parameter.
    * 

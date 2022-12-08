@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 
 class OperationEntryTest {
 
-  private EntryInt symEntry;
+  private Entry symEntry;
   private EntryFactory facEntry;
 
   @BeforeEach
   public void setup() {
     EntryFactory facEntry = new EntryFactory();
-    symEntry = facEntry.createSymbolEntry(Symbol.DIVIDE);
+    symEntry = facEntry.createEntry(Symbol.DIVIDE);
   }
 
   // 1

@@ -24,7 +24,7 @@ public class NumStack {
    * 
    * @param value is the element that is added.
    */
-  public void push(EntryInt value) {
+  public void push(Entry value) {
     numStack.push(value);
   }
 
@@ -46,6 +46,15 @@ public class NumStack {
    */
   public boolean isEmpty() {
     return numStack.size() == 0;
+  }
+
+  /**
+   * This method gives the size of the stack.
+   * 
+   * @return the size.
+   */
+  public int size() {
+    return numStack.size();
   }
 
 

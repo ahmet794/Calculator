@@ -6,7 +6,7 @@ package uk.ac.rhul.cs2800;
  * @author ahmet
  *
  */
-public class FloatEntry implements EntryInt {
+public class FloatEntry implements Entry {
 
   private float value;
 

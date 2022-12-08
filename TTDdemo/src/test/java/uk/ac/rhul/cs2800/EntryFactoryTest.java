@@ -18,7 +18,7 @@ class EntryFactoryTest {
   // class.
   @Test
   void testStringEntryFactory() {
-    EntryInt strEntry = facEntry.createStringEntry("One");
+    Entry strEntry = facEntry.createEntry("One");
     try {
       assertEquals(strEntry.getString(), "One",
           "Creating an Entry object using the EntryFactory class should return the string parameter.");
@@ -33,7 +33,7 @@ class EntryFactoryTest {
 
   @Test
   void testFloatStringEntryFactory() {
-    EntryInt floatEntry = facEntry.createFloatEntry(17.0f);
+    Entry floatEntry = facEntry.createEntry(17.0f);
     try {
       assertEquals(floatEntry.getNum(), 17.0f,
           "Creating an Entry object using the EntryFactory class should return 17.0f.");
@@ -47,7 +47,7 @@ class EntryFactoryTest {
   // class.
   @Test
   void testSymbolEntry() {
-    EntryInt symbolEntry = facEntry.createSymbolEntry(Symbol.DIVIDE);
+    Entry symbolEntry = facEntry.createEntry(Symbol.DIVIDE);
     try {
       assertEquals(symbolEntry.getOp(), Symbol.DIVIDE,
           "Creating an Entry object using the EntryFactory class should return the DIVIDE ENUM.");

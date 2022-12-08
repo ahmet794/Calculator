@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class NumStackTest {
 
   private NumStack numStack;
-  private EntryInt value;
+  private Entry value;
 
   @BeforeEach
   void setup() {
@@ -33,8 +33,8 @@ class NumStackTest {
     } catch (BadTypeException e) {
       ;
     }
-    EntryInt two = new FloatEntry(2.0f);
-    EntryInt three = new FloatEntry(3.0f);
+    Entry two = new FloatEntry(2.0f);
+    Entry three = new FloatEntry(3.0f);
     numStack.push(two);
     numStack.push(three);
     try {

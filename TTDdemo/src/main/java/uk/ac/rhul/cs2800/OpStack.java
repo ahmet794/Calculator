@@ -25,7 +25,7 @@ public class OpStack {
    * 
    * @param symbol is the ENUM that is added to the stack.
    */
-  public void push(EntryInt symbol) {
+  public void push(Entry symbol) {
     opStack.push(symbol);
   }
 
@@ -47,6 +47,15 @@ public class OpStack {
    */
   public boolean isEmpty() {
     return opStack.size() == 0;
+  }
+
+  /**
+   * This method checks the size of the stack.
+   * 
+   * @return the size of the stack.
+   */
+  public int size() {
+    return opStack.size();
   }
 
 

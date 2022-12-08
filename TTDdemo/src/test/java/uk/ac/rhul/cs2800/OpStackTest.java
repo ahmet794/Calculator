@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class OpStackTest {
 
   private OpStack opStack;
-  private EntryInt symbol;
+  private Entry symbol;
 
   @BeforeEach
   void setup() {
@@ -34,8 +34,8 @@ class OpStackTest {
     } catch (BadTypeException e) {
       ;
     }
-    EntryInt plus = new OperationEntry(Symbol.PLUS);
-    EntryInt minus = new OperationEntry(Symbol.MINUS);
+    Entry plus = new OperationEntry(Symbol.PLUS);
+    Entry minus = new OperationEntry(Symbol.MINUS);
     opStack.push(plus);
     opStack.push(minus);
     try {
