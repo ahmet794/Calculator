@@ -59,6 +59,7 @@ class StandardCalculatorTest {
           "Infix expression ( 4 * 5 ) + ( 5 / 5 ) should be 4 5 * 5 5 / + in postfix type.");
       str = "( 1 + 3 * 2 ) + ( 1 + 3 * 2 )";
       assertEquals(infix.parsePostfix(str), "1 3 2 * + 1 3 2 * + + ");
+
     } catch (BadTypeException e) {
       ;
     }
@@ -100,6 +101,9 @@ class StandardCalculatorTest {
         "Adding 5 to 3 and then multiplying by 4 should return 32.0f.");
     str = "( 1 + 3 * 2 ) + ( 1 + 3 * 2 )";
     assertEquals(infix.evaluate(str), 14.0f,
+        "Adding 5 to 3 and then multiplying by 4 should return 32.0f.");
+    str = "6 / 2 * ( 1 + 2 )";
+    assertEquals(infix.evaluate(str), 1.0f,
         "Adding 5 to 3 and then multiplying by 4 should return 32.0f.");
   }
 
