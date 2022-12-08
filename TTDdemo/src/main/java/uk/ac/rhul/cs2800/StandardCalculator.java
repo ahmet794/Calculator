@@ -56,7 +56,9 @@ public class StandardCalculator implements Calculator {
                 entry = facEntry.createEntry(operation);
                 operationStack.push(entry);
               } else if (operation == Symbol.RIGHT_BRACKET) {
-                postfix += operationStack.pop() + " ";
+                while (!(operationStack.isEmpty())) {
+                  postfix += operationStack.pop() + " ";
+                }
               }
             } else {
               postfix += (exp[i] + " ");
@@ -72,11 +74,7 @@ public class StandardCalculator implements Calculator {
     }
 
     while (!(operationStack.isEmpty())) {
-      if (operationStack.size() == 1) {
-        postfix += operationStack.pop().toString();
-      } else {
-        postfix += operationStack.pop().toString() + " ";
-      }
+      postfix += operationStack.pop() + " ";
     }
     return postfix;
   }

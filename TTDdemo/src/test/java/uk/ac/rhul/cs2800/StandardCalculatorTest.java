@@ -34,29 +34,31 @@ class StandardCalculatorTest {
   void testparsePostfix() {
     str = "1 + 3";
     try {
-      assertEquals(infix.parsePostfix(str), "1 3 +",
+      assertEquals(infix.parsePostfix(str), "1 3 + ",
           "Infix expression 1 + 3  should be 1 3 + in postfix type.");
       str = "1 + 4";
-      assertEquals(infix.parsePostfix(str), "1 4 +",
+      assertEquals(infix.parsePostfix(str), "1 4 + ",
           "Infix expression 1 + 4  should be 1 4 + in postfix type.");
       str = "4 - 1";
-      assertEquals(infix.parsePostfix(str), "4 1 -",
+      assertEquals(infix.parsePostfix(str), "4 1 - ",
           "Infix expression 4 - 1 should be 4 1 - in postfix type.");
       str = "4 + 1 * 8";
-      assertEquals(infix.parsePostfix(str), "4 1 8 * +",
+      assertEquals(infix.parsePostfix(str), "4 1 8 * + ",
           "Infix expression 4 + 1 * 8  should be 4 1 8 * + in postfix type.");
       str = "1 * 8 + 4";
-      assertEquals(infix.parsePostfix(str), "1 8 4 + *",
+      assertEquals(infix.parsePostfix(str), "1 8 4 + * ",
           "Infix expression 1 * 8 + 4  should be 1 8 4 + * in postfix type.");
       str = "( 1 + 3 ) * 4";
-      assertEquals(infix.parsePostfix(str), "1 3 + 4 *",
+      assertEquals(infix.parsePostfix(str), "1 3 + 4 * ",
           "Infix expression ( 1 + 3 ) * 4 should be 1 3 + 4 * in postfix type.");
       str = "( 4 * 5 ) + 5 / 5";
-      assertEquals(infix.parsePostfix(str), "4 5 * 5 5 / +",
+      assertEquals(infix.parsePostfix(str), "4 5 * 5 5 / + ",
           "Infix expression ( 4 * 5 ) + 5 / 5 should be 4 5 * 5 5 / + in postfix type.");
       str = "( 4 * 5 ) + ( 5 / 5 )";
-      assertEquals(infix.parsePostfix(str), "4 5 * 5 5 / +",
+      assertEquals(infix.parsePostfix(str), "4 5 * 5 5 / + ",
           "Infix expression ( 4 * 5 ) + ( 5 / 5 ) should be 4 5 * 5 5 / + in postfix type.");
+      str = "( 1 + 3 * 2 ) + ( 1 + 3 * 2 )";
+      assertEquals(infix.parsePostfix(str), "1 3 2 * + 1 3 2 * + + ");
     } catch (BadTypeException e) {
       ;
     }
@@ -95,6 +97,9 @@ class StandardCalculatorTest {
         "Adding 1 to 3 and then multiplying by 4 should return 12.0f.");
     str = "( 5 + 3 ) * 4";
     assertEquals(infix.evaluate(str), 32.0f,
+        "Adding 5 to 3 and then multiplying by 4 should return 32.0f.");
+    str = "( 1 + 3 * 2 ) + ( 1 + 3 * 2 )";
+    assertEquals(infix.evaluate(str), 14.0f,
         "Adding 5 to 3 and then multiplying by 4 should return 32.0f.");
   }
 
