@@ -9,7 +9,11 @@ package uk.ac.rhul.cs2800;
 // This code is inspired by Dave's many many examples, MVC-separated.
 public final class CalcModel {
 
-  private CalcModel() {}
+  RevPolishCalculator postfix;
+
+  private CalcModel() {
+    postfix = new RevPolishCalculator();
+  }
 
   private static CalcModel instance = null;
 
@@ -30,8 +34,10 @@ public final class CalcModel {
    * 
    * @param text is the expression.
    * @return the result.
+   * @throws BadTypeException if the wrong type of getter is called.
+   * @throws InvalidExpression if an invalid expression is typed.
    */
-  public Double calculate(String text) {
-    return 17.17;
+  public float calculate(String text) throws InvalidExpression, BadTypeException {
+    return postfix.evaluate(text);
   }
 }

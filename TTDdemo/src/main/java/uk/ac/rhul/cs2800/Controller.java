@@ -29,8 +29,8 @@ public class Controller implements ControllerInterface {
 
   }
 
-  private void calculateAction() {
-    Double value = calculator.calculate(myView.getExpression());
+  private void calculateAction() throws InvalidExpression, BadTypeException {
+    Float value = calculator.calculate(myView.getExpression());
     myView.setAnswer(value.toString());
   }
 
@@ -42,7 +42,13 @@ public class Controller implements ControllerInterface {
   @Override
   public void addView(ViewInterface view) {
     myView = view;
-    view.addCalcObserver(this::calculateAction);
+    view.addCalcObserver(() -> {
+      try {
+        calculateAction();
+      } catch (InvalidExpression | BadTypeException e) {
+        myView.setAnswer("INVALID EXPRESSION.");
+      }
+    });
     view.addTypeObserver(this::changeType);
   }
 
