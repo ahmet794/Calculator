@@ -59,7 +59,7 @@ public class StandardCalculator implements Calculator {
 
               // When the operator is not a right bracket push it in to operatorStack.
               // If it is a right bracket then pop the stack and then add it to postfix.
-              if (operator != Symbol.RIGHT_BRACKET) {
+              if (!(operator == Symbol.RIGHT_BRACKET || operator == Symbol.LEFT_BRACKET)) {
                 entry = facEntry.createEntry(operator);
                 operatorStack.push(entry);
               } else if (operator == Symbol.RIGHT_BRACKET) {
