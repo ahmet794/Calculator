@@ -35,9 +35,11 @@ public class RevPolishCalculator implements Calculator {
         value = Float.parseFloat(exp[i]);
         entry = facEntry.createEntry(value);
         val.push(entry);
-      } else {
+      } else if (exp[i].matches("[()+-/*]")) {
         operation = exp[i];
         result = operate(operation, val, result);
+      } else {
+        throw new InvalidExpression();
       }
     }
 
