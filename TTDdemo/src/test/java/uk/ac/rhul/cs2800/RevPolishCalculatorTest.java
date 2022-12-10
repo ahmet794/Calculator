@@ -103,7 +103,7 @@ class RevPolishCalculatorTest {
   }
 
   @Test
-  void testEvaluateFully() {
+  void testEvaluateFully() throws InvalidExpression, BadTypeException {
     str = "2 6 7 + -";
     try {
       assertEquals(postfix.evaluate(str), -11.0f,
@@ -132,9 +132,7 @@ class RevPolishCalculatorTest {
     str = "1 f 3";
     assertThrows(InvalidExpression.class, () -> postfix.evaluate(str),
         "An invalid exp should throw an exception");
-    str = "1 + 3";
-    assertThrows(InvalidExpression.class, () -> postfix.evaluate(str),
-        "An invalid exp should throw an exception");
+
   }
 
 
