@@ -5,3 +5,17 @@ December 8th 2022
 First Release
 
 This release includes the working GUI of the calculator.
+
+# CALCULATOR v0.1.1
+
+December 9th 2022
+
+Second Release
+
+This release includes the working postfix type evaluation.
+
+# CALCULATOR v0.1.2
+
+Third Release
+
+This release includes both postfix and infix type evaluation.

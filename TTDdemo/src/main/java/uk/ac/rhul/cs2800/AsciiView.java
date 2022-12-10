@@ -18,16 +18,22 @@ public class AsciiView implements ViewInterface {
 
   String expression;
   Observer calculator = null;
+  Calculator calc;
   Consumer<OpType> type = null;
 
 
   /**
    * The menu that is created for the calculator.
    * 
+   * @throws BadTypeException if the wrong getter is called.
+   * @throws InvalidExpression if there is an invalid expression.
+   * 
    */
-  public void menu() {
+  public void menu() throws InvalidExpression, BadTypeException {
     Scanner s = new Scanner(System.in);
+    calc = new RevPolishCalculator();
     boolean finished = false;
+    boolean postfix = false;
     help();
 
     while (!finished && s.hasNext()) {
@@ -37,18 +43,23 @@ public class AsciiView implements ViewInterface {
         case 'c':
           if (calculator != null) {
             calculator.notifyObservers();
+            if (postfix == true) {
+              calc.evaluate(expression);
+            }
           }
           break;
         case 'I':
         case 'i':
           if (type != null) {
             type.accept(OpType.INFIX);
+            postfix = false;
           }
           break;
         case 'P':
         case 'p':
           if (type != null) {
             type.accept(OpType.POSTFIX);
+            postfix = true;
           }
           break;
         case '?':
@@ -61,6 +72,7 @@ public class AsciiView implements ViewInterface {
           break;
         default:
           help();
+          break;
       }
     }
     s.close();
@@ -95,5 +107,5 @@ public class AsciiView implements ViewInterface {
   public void addCalcObserver(Observer runnable) {
     calculator = runnable;
   }
-  
+
 }

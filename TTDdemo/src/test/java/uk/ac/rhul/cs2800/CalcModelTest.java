@@ -15,8 +15,16 @@ class CalcModelTest {
   }
 
   @Test
-  void testCalculate() throws InvalidExpression, BadTypeException {
+  void testCalculatePostifx() throws InvalidExpression, BadTypeException {
     str = "3 1 +";
+    assertEquals(calculator.calculate(str), 4.0f);
+    str = "7 2 +";
+    assertEquals(calculator.calculate(str), 9.0f);
+  }
+
+  @Test
+  void testCalculateInfix() throws InvalidExpression, BadTypeException {
+    str = "3 + 1";
     assertEquals(calculator.calculate(str), 4.0f);
   }
 

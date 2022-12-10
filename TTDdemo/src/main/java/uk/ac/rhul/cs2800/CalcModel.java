@@ -9,10 +9,15 @@ package uk.ac.rhul.cs2800;
 // This code is inspired by Dave's many many examples, MVC-separated.
 public final class CalcModel {
 
-  RevPolishCalculator postfix;
+  Calculator postfix;
+  Calculator infix;
+  boolean isPostfix;
+
 
   private CalcModel() {
     postfix = new RevPolishCalculator();
+    infix = new StandardCalculator();
+    isPostfix = false;
   }
 
   private static CalcModel instance = null;
@@ -38,6 +43,10 @@ public final class CalcModel {
    * @throws InvalidExpression if an invalid expression is typed.
    */
   public float calculate(String text) throws InvalidExpression, BadTypeException {
-    return postfix.evaluate(text);
+    if (isPostfix == true) {
+      return postfix.evaluate(text);
+    } else {
+      return infix.evaluate(text);
+    }
   }
 }
