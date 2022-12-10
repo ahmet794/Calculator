@@ -125,7 +125,17 @@ public class StandardCalculator implements Calculator {
    * @return if it is an infix expression.
    */
   public boolean isInfix(String exp) {
-    return true;
+    boolean infix = false;
+    String[] arr = exp.split(" ");
+    for (int i = 0; i < arr.length; i++) {
+      if ((i + 1) < arr.length && arr[i + 1].matches("[()+-/*]") && (i + 1) != arr.length - 1) {
+        infix = true;
+        break;
+      } else {
+        infix = false;
+      }
+    }
+    return infix;
   }
 
 }
