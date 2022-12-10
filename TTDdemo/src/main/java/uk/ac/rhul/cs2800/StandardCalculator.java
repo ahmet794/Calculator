@@ -37,13 +37,17 @@ public class StandardCalculator implements Calculator {
    * @param str is the expression to be parsed.
    * @return postfix expression.
    * @throws BadTypeException if the wrong type is getter is called.
+   * @throws InvalidExpression if the expression is wrong.
    */
   // BadTypeException wont ever be called.
-  public String parsePostfix(String str) throws BadTypeException {
+  public String parsePostfix(String str) throws BadTypeException, InvalidExpression {
     String[] exp = str.split(" ");
     String postfix = "";
     Symbol operator = null;
     // Create a String array and then iterate until a number is not found.
+    if (isInfix(str) == false) {
+      throw new InvalidExpression();
+    }
     for (int i = 0; i < exp.length; i++) {
       if (exp[i].matches("\\d+")) {
         postfix += (exp[i] + " ");

@@ -31,7 +31,7 @@ class StandardCalculatorTest {
   }
 
   @Test
-  void testparsePostfix() {
+  void testparsePostfix() throws InvalidExpression {
     str = "1 + 3";
     try {
       assertEquals(infix.parsePostfix(str), "1 3 + ",
@@ -121,6 +121,8 @@ class StandardCalculatorTest {
     assertEquals(infix.isInfix(str), true, "This is an infix expression.");
     str = "1 3 4 + +";
     assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
+    str = "1 3 4 5 + + +";
+    assertEquals(infix.isInfix(str), false, "This is a postfix expression");
   }
 
 }
