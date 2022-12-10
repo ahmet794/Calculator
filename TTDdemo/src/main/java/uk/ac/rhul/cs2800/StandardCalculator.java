@@ -118,4 +118,14 @@ public class StandardCalculator implements Calculator {
     return operator;
   }
 
+  /**
+   * This method checks if the expression is infix.
+   * 
+   * @param exp is the expression.
+   * @return if it is an infix expression.
+   */
+  public boolean isInfix(String exp) {
+    return true;
+  }
+
 }
