@@ -14,6 +14,7 @@ class StandardCalculatorTest {
     str = "1 + 2";
   }
 
+  // Testing addition in the evaluate method.
   @Test
   void testEvaluateAddition() {
     try {
@@ -30,6 +31,7 @@ class StandardCalculatorTest {
     }
   }
 
+  // Testing if parsePostfix works in different kinds infix expressions.
   @Test
   void testparsePostfix() {
     str = "1 + 3";
@@ -68,6 +70,8 @@ class StandardCalculatorTest {
 
   }
 
+
+  // Testing if ENUM conversion works.
   @Test
   void testEnum() {
     String plus = "+";
@@ -76,6 +80,8 @@ class StandardCalculatorTest {
     assertTrue(op == Symbol.PLUS);
   }
 
+
+  // Testing more complex expressions that uses different kinds of operators.
   @Test
   void testEvaluateAddMult() {
     try {
