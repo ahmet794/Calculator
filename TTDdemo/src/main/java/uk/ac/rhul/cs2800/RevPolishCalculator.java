@@ -27,6 +27,11 @@ public class RevPolishCalculator implements Calculator {
     float result = 0;
     float value = 0;
 
+    // If the passed string is an infix expression then throw an InvalidExpression exception.
+    if (isInfix(str) == true) {
+      throw new InvalidExpression();
+    }
+
     // Iterate through the String array that has been created.
     for (int i = 0; i < exp.length; i++) {
       if (exp[i].matches("\\d+")) {
@@ -85,6 +90,22 @@ public class RevPolishCalculator implements Calculator {
     }
 
     return result;
+  }
+
+  @Override
+  public boolean isInfix(String exp) {
+    boolean infix = false;
+    String[] arr = exp.split(" ");
+    for (int i = 0; i < arr.length; i++) {
+      if ((i + 1) < arr.length && arr[i + 1].matches("[()+-/*]") && (i + 2) < arr.length
+          && !(arr[i + 2].matches("[()+-/*]")) && (i + 1) != arr.length - 1) {
+        infix = true;
+        break;
+      } else {
+        infix = false;
+      }
+    }
+    return infix;
   }
 
 }

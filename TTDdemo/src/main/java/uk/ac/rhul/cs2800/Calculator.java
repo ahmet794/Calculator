@@ -18,4 +18,12 @@ public interface Calculator {
    */
   public float evaluate(String str) throws InvalidExpression, BadTypeException;
 
+  /**
+   * This method checks if the expression is infix.
+   * 
+   * @param exp is the expression.
+   * @return if it is an infix expression.
+   */
+  public boolean isInfix(String exp);
+
 }
