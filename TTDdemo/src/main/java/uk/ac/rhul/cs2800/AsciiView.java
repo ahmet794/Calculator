@@ -18,8 +18,8 @@ public class AsciiView implements ViewInterface {
 
   String expression;
   Observer calculator = null;
-  Calculator calc;
   Consumer<OpType> type = null;
+  private String answer;
 
 
   /**
@@ -31,7 +31,6 @@ public class AsciiView implements ViewInterface {
    */
   public void menu() throws InvalidExpression, BadTypeException {
     Scanner s = new Scanner(System.in);
-    calc = new RevPolishCalculator();
     boolean finished = false;
     boolean postfix = false;
     help();
@@ -43,44 +42,46 @@ public class AsciiView implements ViewInterface {
         case 'c':
           if (calculator != null) {
             calculator.notifyObservers();
-            if (postfix == true) {
-              calc.evaluate(expression);
-            }
+            System.out.println("Answer is " + answer);
           }
           break;
         case 'I':
         case 'i':
           if (type != null) {
             type.accept(OpType.INFIX);
-            postfix = false;
           }
           break;
         case 'P':
         case 'p':
           if (type != null) {
             type.accept(OpType.POSTFIX);
-            postfix = true;
           }
           break;
         case '?':
-          expression = t.substring(1);
+          expression = s.nextLine().trim();
+          calculator.notifyObservers();
           System.out.println("Expression is: " + expression);
           break;
         case 'Q':
         case 'q':
           System.out.println("See you!");
+          finished = true;
           break;
         default:
           help();
+
           break;
       }
     }
     s.close();
+
   }
 
   private void help() {
-    System.out.println("Use one of the following: \n " + "Use '?' to set the expression. \n "
-        + "Use 'P' to change to Postfix. \n " + "Use 'I' to change to infix. \n "
+    System.out.println("Use one of the following: \n "
+        + "Use '?' to set the expression. Type the expresssion with leaving spaces "
+        + "in between characters. \n " + "Use 'P' to change to Postfix. \n "
+        + "Use 'I' to change to infix. \n "
         + "Use 'C' to calculate. \n Use 'Q' to exit the program.");
 
   }
@@ -92,8 +93,7 @@ public class AsciiView implements ViewInterface {
 
   @Override
   public void setAnswer(String str) {
-    System.out.println("Almost there!");
-
+    answer = str;
   }
 
 
@@ -107,5 +107,6 @@ public class AsciiView implements ViewInterface {
   public void addCalcObserver(Observer runnable) {
     calculator = runnable;
   }
+
 
 }
