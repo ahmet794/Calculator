@@ -25,6 +25,11 @@ public class StandardCalculator implements Calculator {
 
   @Override
   public float evaluate(String str) throws InvalidExpression, BadTypeException {
+    
+    // If the passed string is not an infix expression throw an InvalidExpression exception.
+    if (isInfix(str) == false) {
+      throw new InvalidExpression();
+    }
 
     return postfix.evaluate(parsePostfix(str));
 
@@ -45,9 +50,6 @@ public class StandardCalculator implements Calculator {
     String postfix = "";
     Symbol operator = null;
     // Create a String array and then iterate until a number is not found.
-    if (isInfix(str) == false) {
-      throw new InvalidExpression();
-    }
     for (int i = 0; i < exp.length; i++) {
       if (exp[i].matches("\\d+")) {
         postfix += (exp[i] + " ");
@@ -122,12 +124,7 @@ public class StandardCalculator implements Calculator {
     return operator;
   }
 
-  /**
-   * This method checks if the expression is infix.
-   * 
-   * @param exp is the expression.
-   * @return if it is an infix expression.
-   */
+  @Override
   public boolean isInfix(String exp) {
     boolean infix = false;
     String[] arr = exp.split(" ");
