@@ -16,17 +16,23 @@ This release includes the working postfix type evaluation.
 
 # CALCULATOR v0.1.2
 
+December 10th 2022
+
 Third Release
 
 This release includes both postfix and infix type evaluation.
 
 # CALCULATOR v0.2.0
 
+December 10th 2022
+
 Fourth Release
 
 This release fixes the bug when a postfix type expression is passed whilst the infix mode is on, it used to calculate it. With the bug fix now it gives invalid expression.
 
 # CALCULATOR v1.0.0
+
+December 11th 2022
 
 Fifth Release
 
@@ -35,3 +41,9 @@ This release fixes several bugs.
 - Fixed when the application was first run even though infix type of evaluation method was chosen it wasn't automatically chosen.
 - Fixed when you typed a postfix expression and postfix button was pressed it still gave InvalidExpression. 
 - Fixed when there was a bracket inside an infix expression it used to return that it was a postfix expression.
+
+# CALCULATOR v1.0.1
+
+December 11th 2022
+
+This release fixes the bug where when you used type an unbalanced postfix expression it used not give invalid expression exception, now it does.
