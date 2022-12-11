@@ -12,6 +12,8 @@ public class Controller implements ControllerInterface {
   CalcModel calculator = CalcModel.getInstance();
   ViewInterface myView = null;
 
+  private boolean isPostfix;
+
   /**
    * This constructor creates a Controller object and adds itself as an observer.
    * 
@@ -30,13 +32,15 @@ public class Controller implements ControllerInterface {
   }
 
   private void calculateAction() throws InvalidExpression, BadTypeException {
-    Float value = calculator.calculate(myView.getExpression());
+    Float value = calculator.calculate(myView.getExpression(), isPostfix);
     myView.setAnswer(value.toString());
   }
 
   private void changeType(OpType type) {
+    isPostfix = type.equals(OpType.POSTFIX);
     myView.setAnswer("Changed the type to " + type);
   }
+
 
 
   @Override

@@ -31,7 +31,7 @@ public interface ViewInterface {
   public void addCalcObserver(Observer runnable);
 
   /**
-   * Adding the which method to be used in the calculator.
+   * Adding the which type to be used in the calculator.
    * 
    * @param consumer is the method used.
    */

@@ -122,7 +122,12 @@ class StandardCalculatorTest {
     str = "1 3 4 + +";
     assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
     str = "1 3 4 5 + + +";
-    assertEquals(infix.isInfix(str), false, "This is a postfix expression");
+    assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
+    str = "1 3 + 4 *";
+    assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
+    str = "1 3 2 * + 1 3 2 * + + ";
+    assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
+    str = "( 1 + 3 * 2 ) + ( 1 + 3 * 2 )";
+    assertEquals(infix.isInfix(str), true, "This is an infix expression.");
   }
-
 }

@@ -17,7 +17,6 @@ public final class CalcModel {
   private CalcModel() {
     postfix = new RevPolishCalculator();
     infix = new StandardCalculator();
-    isPostfix = false;
   }
 
   private static CalcModel instance = null;
@@ -38,11 +37,13 @@ public final class CalcModel {
    * This method should calculate the given expression. It now only will return 17.00 for now.
    * 
    * @param text is the expression.
+   * @param isPostfix is the boolean to check if it is postfix type or not.
    * @return the result.
    * @throws BadTypeException if the wrong type of getter is called.
    * @throws InvalidExpression if an invalid expression is typed.
    */
-  public float calculate(String text) throws InvalidExpression, BadTypeException {
+  public float calculate(String text, boolean isPostfix)
+      throws InvalidExpression, BadTypeException {
     if (isPostfix == true) {
       return postfix.evaluate(text);
     } else {
