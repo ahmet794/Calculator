@@ -102,6 +102,7 @@ class RevPolishCalculatorTest {
     }
   }
 
+  // Testing the evaluate method in more complex ways.
   @Test
   void testEvaluateFully() throws InvalidExpression, BadTypeException {
     str = "2 6 7 + -";
@@ -127,6 +128,7 @@ class RevPolishCalculatorTest {
     }
   }
 
+  // Testing the invalid expression exception is thrown in certain cases.
   @Test
   void testInvalidExpression() {
     str = "1 f 3";
@@ -137,6 +139,16 @@ class RevPolishCalculatorTest {
         "An infix expression should throw an exception.");
   }
 
+  // Test if the expression given is unbalanced or not.
+  @Test
+  void testisUnbalanced() {
+    str = "1 3 + +";
+    assertEquals(postfix.isUnbalanced(str), true, "This is an unbalanced expression.");
+    str = "1 3 +";
+    assertEquals(postfix.isUnbalanced(str), false, "This is not an unbalanced expression.");
+    str = "1 3 4 + - * /";
+    assertEquals(postfix.isUnbalanced(str), true, "This is an unbalanced expression");
+  }
 
 
 }
