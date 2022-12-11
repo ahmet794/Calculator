@@ -110,6 +110,26 @@ class StandardCalculatorTest {
     str = "( 5 * ( 6 + 7 ) ) - 2";
     assertEquals(infix.evaluate(str), 63.0f,
         "Adding 5 to 3 and then multiplying by 4 should return 32.0f.");
+    assertEquals(infix.evaluate(str), 63.0f);
   }
 
+  @Test
+  void testIsInfix() {
+    str = "1 + 3";
+    assertEquals(infix.isInfix(str), true, "This is an infix expression.");
+    str = "1 3 +";
+    assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
+    str = "1 + 3 + 4";
+    assertEquals(infix.isInfix(str), true, "This is an infix expression.");
+    str = "1 3 4 + +";
+    assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
+    str = "1 3 4 5 + + +";
+    assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
+    str = "1 3 + 4 *";
+    assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
+    str = "1 3 2 * + 1 3 2 * + + ";
+    assertEquals(infix.isInfix(str), false, "This is a postfix expression.");
+    str = "( 1 + 3 * 2 ) + ( 1 + 3 * 2 )";
+    assertEquals(infix.isInfix(str), true, "This is an infix expression.");
+  }
 }

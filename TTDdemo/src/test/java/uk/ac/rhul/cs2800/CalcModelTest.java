@@ -8,6 +8,7 @@ class CalcModelTest {
 
   CalcModel calculator;
   String str;
+  boolean isPostfix;
 
   @BeforeEach
   void setup() {
@@ -17,15 +18,17 @@ class CalcModelTest {
   @Test
   void testCalculatePostifx() throws InvalidExpression, BadTypeException {
     str = "3 1 +";
-    assertEquals(calculator.calculate(str), 4.0f);
+    isPostfix = true;
+    assertEquals(calculator.calculate(str, isPostfix), 4.0f);
     str = "7 2 +";
-    assertEquals(calculator.calculate(str), 9.0f);
+    assertEquals(calculator.calculate(str, isPostfix), 9.0f);
   }
 
   @Test
   void testCalculateInfix() throws InvalidExpression, BadTypeException {
     str = "3 + 1";
-    assertEquals(calculator.calculate(str), 4.0f);
+    isPostfix = false;
+    assertEquals(calculator.calculate(str, isPostfix), 4.0f);
   }
 
 }

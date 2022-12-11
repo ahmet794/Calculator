@@ -25,7 +25,7 @@ public class StandardCalculator implements Calculator {
 
   @Override
   public float evaluate(String str) throws InvalidExpression, BadTypeException {
-    
+
     // If the passed string is not an infix expression throw an InvalidExpression exception.
     if (isInfix(str) == false) {
       throw new InvalidExpression();
@@ -128,8 +128,17 @@ public class StandardCalculator implements Calculator {
   public boolean isInfix(String exp) {
     boolean infix = false;
     String[] arr = exp.split(" ");
+
+    // Create an array by splitting by the whitespace and then iterate.
     for (int i = 0; i < arr.length; i++) {
-      if ((i + 1) < arr.length && arr[i + 1].matches("[()+-/*]") && (i + 2) < arr.length
+
+      // Check if the last element of the array is an operator.
+      if (arr[arr.length - 1].matches("[+-/*]")) {
+        infix = false;
+        break;
+
+        // Check if there are two consecutive operators and it is not only one element.
+      } else if ((i + 1) < arr.length && arr[i + 1].matches("[()+-/*]") && (i + 2) < arr.length
           && !(arr[i + 2].matches("[()+-/*]")) && (i + 1) != arr.length - 1) {
         infix = true;
         break;
