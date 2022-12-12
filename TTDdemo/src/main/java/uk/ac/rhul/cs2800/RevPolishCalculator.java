@@ -11,6 +11,7 @@ public class RevPolishCalculator implements Calculator {
   private Entry entry;
   private EntryFactory facEntry;
 
+
   /**
    * Create a NumStack object and a EntryFactory to create entries.
    * 
@@ -28,7 +29,7 @@ public class RevPolishCalculator implements Calculator {
     float value = 0;
 
     // If the passed string is an infix expression then throw an InvalidExpression exception.
-    if (isInfix(str) == true) {
+    if (isInfix(str) == true || isUnbalanced(str) == true) {
       throw new InvalidExpression();
     }
 
@@ -115,5 +116,30 @@ public class RevPolishCalculator implements Calculator {
       }
     }
     return infix;
+  }
+
+  /**
+   * This method checks if the expression is unbalanced or not.
+   * 
+   * @return if the expression is unbalanced.
+   */
+  public boolean isUnbalanced(String str) {
+    String[] arr = str.split(" ");
+    int countOp = 0;
+    int countNum = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i].matches("\\d+")) {
+        countNum++;
+      } else if (arr[i].matches("[()*/+-]")) {
+        countOp++;
+      }
+    }
+
+    if (countNum == countOp + 1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
