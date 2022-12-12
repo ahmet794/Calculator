@@ -18,18 +18,6 @@ public class EntryFactory {
 
   }
 
-
-  /**
-   * This method creates an Entry object which has a string parameter.
-   * 
-   * @param string is the string for the Entry object.
-   * @return an Entry object with a string parameter.
-   */
-  public Entry createEntry(String string) {
-    StringEntry strEntry = new StringEntry(string);
-    return strEntry;
-  }
-
   /**
    * This method creates an Entry object which has a float parameter.
    * 

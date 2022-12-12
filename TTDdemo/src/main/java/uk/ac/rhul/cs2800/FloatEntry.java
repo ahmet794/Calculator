@@ -29,14 +29,6 @@ public class FloatEntry implements Entry {
     return value;
   }
 
-  /**
-   * This class should only return getNum method other types should only throw exceptions.
-   * @throws BadTypeException if this method is called from this class.
-   */
-  @Override
-  public String getString() throws BadTypeException {
-    throw new BadTypeException();
-  }
 
   /**
    * This class should only return getNum method other types should only throw exceptions.

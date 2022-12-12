@@ -34,9 +34,6 @@ class OperationEntryTest {
   void testOperationEntryOtherMethods() {
     assertThrows(BadTypeException.class, () -> symEntry.getNum(),
         "Calling the getNum method in this class should throw an exception.");
-    assertThrows(BadTypeException.class, () -> symEntry.getString(),
-        "Calling the getString method in this class should throw an exception.");
-
   }
 
 

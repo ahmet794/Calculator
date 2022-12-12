@@ -13,19 +13,6 @@ class EntryFactoryTest {
     facEntry = new EntryFactory();
   }
 
-  // 1
-  // Create an Entry object from EntryFactory class and use the getString method from the Entry
-  // class.
-  @Test
-  void testStringEntryFactory() {
-    Entry strEntry = facEntry.createEntry("One");
-    try {
-      assertEquals(strEntry.getString(), "One",
-          "Creating an Entry object using the EntryFactory class should return the string parameter.");
-    } catch (BadTypeException e) {
-      ;
-    }
-  }
 
   // 2
   // Create an Entry object from EntryFactory class and use the getValue method from the Entry

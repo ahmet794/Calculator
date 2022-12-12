@@ -11,7 +11,7 @@ public class OperationEntry implements Entry {
   private Symbol symbol;
 
   /**
-   * This constructor creates a FloatEntry object with a Symbol ENUM parameter.
+   * This constructor creates an Entry object with a Symbol ENUM parameter.
    * 
    * @param symbol is the Symbol ENUM.
    */
@@ -38,17 +38,6 @@ public class OperationEntry implements Entry {
   public float getNum() throws BadTypeException {
     throw new BadTypeException();
   }
-
-  /**
-   * This class should only return getOp method other types should only throw exceptions.
-   * 
-   * @throws BadTypeException if this method is called from this class.
-   */
-  @Override
-  public String getString() throws BadTypeException {
-    throw new BadTypeException();
-  }
-
-
-
 }
+
+
