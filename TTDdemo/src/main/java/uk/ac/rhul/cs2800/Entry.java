@@ -7,12 +7,6 @@ package uk.ac.rhul.cs2800;
  *
  */
 public interface Entry {
-  /**
-   * This method should return the string of the parameter.
-   * 
-   * @return the string.
-   */
-  public String getString() throws BadTypeException;
 
   /**
    * This method should return the float of the parameter.

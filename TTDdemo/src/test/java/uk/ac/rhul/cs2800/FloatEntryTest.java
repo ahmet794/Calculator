@@ -27,14 +27,6 @@ class FloatEntryTest {
     }
   }
 
-  // 2
-  // Use the FloatEntry object and get the value from using the getString method.
-  @Test
-  void testFloatEntryGetString() {
-    assertThrows(BadTypeException.class, () -> floatEntry.getString(),
-        "Calling the getString() method should throw an Exception.");
-  }
-
   // 3
   // Use the FloatEntry object and get the value from using the getOp method.
   @Test
