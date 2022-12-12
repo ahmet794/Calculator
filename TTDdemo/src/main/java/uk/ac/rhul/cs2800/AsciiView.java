@@ -32,7 +32,6 @@ public class AsciiView implements ViewInterface {
   public void menu() throws InvalidExpression, BadTypeException {
     Scanner s = new Scanner(System.in);
     boolean finished = false;
-    boolean postfix = false;
     help();
 
     while (!finished && s.hasNext()) {

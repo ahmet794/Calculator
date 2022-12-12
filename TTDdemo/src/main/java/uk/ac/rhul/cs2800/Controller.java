@@ -11,7 +11,6 @@ public class Controller implements ControllerInterface {
 
   CalcModel calculator = CalcModel.getInstance();
   ViewInterface myView = null;
-
   private boolean isPostfix;
 
   /**
