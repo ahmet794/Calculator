@@ -7,7 +7,7 @@ need to stay as currently defined in order for your lecturer to be able to find 
  
 # Calculator
 
-This repository contains a demonstration of test-driven development (TTD) using Java and JUnit. The code in
+This repository contains a demonstration of test-driven development (TTD) using Java and JUnit and Software developing using design patterns. The code in
 this repository implements a simple calculator that can evaluate basic mathematical expressions.
 
 The repository includes a src directory containing the Java source code for the calculator, as well as a tests
